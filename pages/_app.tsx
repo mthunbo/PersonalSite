@@ -33,7 +33,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <link rel="icon" href="/favicon.ico" />
 
         {/* Basic Metadata */}
-        <title>Mark Thunbo – Developer, Dreamer, Doer</title>
+        <title>Mark Thunbo – Developer, Dreamer, </title>
         <meta
           name="description"
           content="Personal portfolio of Mark Thunbo – curious developer, driven learner, building creative solutions with code and compassion."

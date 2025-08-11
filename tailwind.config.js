@@ -6,30 +6,44 @@ module.exports = {
   safelist: [
     'bg-primary',
     'bg-primary-light',
+    'bg-primary-hover',
     'bg-accent',
     'bg-accent-hover',
     'bg-royal',
+    'bg-royal-hover',
     'bg-highlight',
-    'bg-card-bg',
-    'bg-border',
-    'text-text-light',
-    'text-background-dark'
+    'bg-surface',
+    'bg-background',
+    'text-text',
+    'text-muted',
+    'text-highlight',
+    'text-background',
+    'border-border'
   ],
   theme: {
     extend: {
       colors: {
-        primary: '#3F7F62',
-        'primary-light': '#4F9D7B',
-        'primary-button': '#004225',
-        accent: '#800020',
-        'accent-hover': '#9A1E30',    
-        royal: '#4B0082',             
-        'royal-hover': '#6A0DAD',
-        heading: '#A68A64',
-        'background-dark': '#121212',
-        'card-bg': '#2A2A2A',
-        'text-light': '#E5E5E5',
+        background: '#121212',
+        surface: '#2A2A2A',
         border: '#3A3A3A',
+        text: {
+          DEFAULT: '#E5E5E5',
+          muted: '#A0A0A0',
+        },
+        primary: {
+          DEFAULT: '#004225',
+          light: '#3F7F62',
+          hover: '#4F9D7B',
+        },
+        accent: {
+          DEFAULT: '#800020',
+          hover: '#9A1E30',
+        },
+        royal: {
+          DEFAULT: '#4B0082',
+          hover: '#6A0DAD',
+        },
+        highlight: '#A68A64',
       },
       fontFamily: {
         body: ['var(--font-marcellus)', 'serif'],
