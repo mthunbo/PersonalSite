@@ -36,8 +36,8 @@ module.exports = {
           hover: '#4F9D7B',
         },
         accent: {
-          DEFAULT: '#800020',
-          hover: '#9A1E30',
+          DEFAULT: '#5b0016',
+          hover: '#800020',
         },
         royal: {
           DEFAULT: '#4B0082',

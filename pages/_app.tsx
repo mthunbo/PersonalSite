@@ -1,8 +1,9 @@
 import "../styles/globals.css";
-import Head from "next/head";
 import type { AppProps } from "next/app";
+import Head from "next/head";
 
 import { Marcellus, Orbitron, Great_Vibes } from "next/font/google";
+import Layout from "../components/Layout";
 
 const marcellus = Marcellus({
   subsets: ["latin"],
@@ -33,7 +34,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <link rel="icon" href="/favicon.ico" />
 
         {/* Basic Metadata */}
-        <title>Mark Thunbo – Developer, Dreamer, </title>
+        <title>Mark Thunbo – Developer, Dreamer</title>
         <meta
           name="description"
           content="Personal portfolio of Mark Thunbo – curious developer, driven learner, building creative solutions with code and compassion."
@@ -41,7 +42,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#004225" />
 
-        {/* Open Graph (for social preview like Discord, Facebook) */}
+        {/* Open Graph */}
         <meta property="og:title" content="Mark Thunbo – Developer Portfolio" />
         <meta
           property="og:description"
@@ -64,7 +65,9 @@ export default function App({ Component, pageProps }: AppProps) {
       <main
         className={`${marcellus.variable} ${orbitron.variable} ${greatVibes.variable}`}
       >
-        <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </main>
     </>
   );
