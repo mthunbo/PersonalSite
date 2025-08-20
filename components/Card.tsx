@@ -1,13 +1,11 @@
-// components/Card.tsx
 import React from "react";
 import {
   card,
-  cardImage,
+  cardHeader,
   cardBody,
-  cardTitle,
   cardDescription,
   cardActions,
-} from "./Card.styles";
+} from "./card.styles";
 import { Button } from "./Button";
 
 type CardProps = {
@@ -21,41 +19,53 @@ type CardProps = {
 };
 
 export const Card: React.FC<CardProps> = ({
-  image,
-  title,
-  description,
-  type,
-  size,
-  repoUrl,
-  liveUrl,
-}) => {
-  return (
-    <div className={card({ type, size })}>
-      {image && <img src={image} alt={title} className={cardImage()} />}
-
-      <div className={cardBody()}>
-        <h3 className={cardTitle()}>{title}</h3>
-        {description && <p className={cardDescription()}>{description}</p>}
-
-        <div className={cardActions()}>
-          {repoUrl && (
-            <Button
-              variant="project"
-              onClick={() => window.open(repoUrl, "_blank")}
-            >
-              View Code
-            </Button>
-          )}
-          {liveUrl && (
-            <Button
-              variant="secondary"
-              onClick={() => window.open(liveUrl, "_blank")}
-            >
-              View Live
-            </Button>
-          )}
+    image,
+    title,
+    description,
+    type,
+    size,
+    repoUrl,
+    liveUrl,
+  }) => {
+    return (
+      <div className={card({ type, size })}>
+        {/* Title */}
+        <div className={cardHeader()}>{title}</div>
+  
+        {/* Image */}
+        {image && (
+          <div className="w-full h-40 flex justify-center items-center overflow-hidden">
+            <img
+              src={image}
+              alt={title}
+              className="w-full h-full object-cover"
+            />
+          </div>
+        )}
+  
+        {/* Description and Actions */}
+        <div className={cardBody()}>
+          {description && <p className={cardDescription()}>{description}</p>}
+  
+          <div className={cardActions()}>
+            {repoUrl && (
+              <Button
+                variant="project"
+                onClick={() => window.open(repoUrl, "_blank")}
+              >
+                View Code
+              </Button>
+            )}
+            {liveUrl && (
+              <Button
+                variant="secondary"
+                onClick={() => window.open(liveUrl, "_blank")}
+              >
+                View Live
+              </Button>
+            )}
+          </div>
         </div>
       </div>
-    </div>
-  );
-};
+    );
+  };  

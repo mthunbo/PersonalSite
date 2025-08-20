@@ -1,10 +1,10 @@
 import { tv } from "tailwind-variants";
 
 export const card = tv({
-  base: "rounded-xl overflow-hidden shadow-md bg-background border border-gray-200 transition-transform hover:scale-110",
+  base: "flex flex-col rounded-xl overflow-hidden shadow-md bg-accent border border-highlight transition-transform hover:scale-105 h-full",
   variants: {
     type: {
-      project: "bg-background text-foreground",
+      project: "bg-accent text-highlight",
       blog: "bg-white text-black",
     },
     size: {
@@ -19,22 +19,18 @@ export const card = tv({
   },
 });
 
-export const cardImage = tv({
-  base: "w-full h-48 object-cover",
+export const cardHeader = tv({
+  base: "bg-accent-dark text-highlight text-lg font-semibold px-4 py-2 w-full truncate",
 });
 
 export const cardBody = tv({
-  base: "p-4",
-});
-
-export const cardTitle = tv({
-  base: "text-lg font-semibold mb-2",
+  base: "flex flex-col flex-grow p-4",
 });
 
 export const cardDescription = tv({
-  base: "text-sm text-muted-foreground mb-4",
+  base: "text-sm text-highlight mb-4 line-clamp-3", 
 });
 
 export const cardActions = tv({
-  base: "flex gap-2 mt-2",
+  base: "flex gap-2 mt-auto",
 });

@@ -1,8 +1,24 @@
-import { Button } from "../components/Button";
 import { Card } from "../components/Card";
 import { SectionHeader } from "../components/SectionHeader";
+import Projects from "../components/Projects";
+import { getGitHubRepos } from "../lib/github";
 
-export default function Home() {
+interface Repo {
+  id: number;
+  name: string;
+  description: string | null;
+  html_url: string;
+  homepage?: string | null;
+  fork: boolean;
+  private: boolean;
+  archived: boolean;
+}
+
+interface HomeProps {
+  repos: Repo[];
+}
+
+export default function Home({ repos }:HomeProps) {
   return (
     <>
       {/* Hero Section */}
@@ -12,6 +28,7 @@ export default function Home() {
           subtitle=""
           align="center"
           size="lg"
+          className="text-gold-header"
         />      
       </section>
 
@@ -22,6 +39,7 @@ export default function Home() {
           subtitle=""
           align="center"
           size="lg"
+          className="text-gold-header"
         /> 
       </section>
 
@@ -32,62 +50,34 @@ export default function Home() {
           subtitle=""
           align="center"
           size="lg"
+          className="text-gold-header"
         /> 
       </section>
 
       {/* Projects */}
-      <section className="min-h-screen flex flex-col items-center pt-20 bg-gradient-to-b from-surface to-background">
-        <SectionHeader 
-          title="Projects"
-          subtitle=""
-          align="center"
-          size="lg"
-        />         
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-11/12">
-          {[
-            {
-              title: "Portfolio Website",
-              description: "Personal portfolio built with Next.js, Tailwind CSS, and Framer Motion.",
-              repoUrl: "https://github.com/yourusername/portfolio",
-              liveUrl: "https://yourportfolio.com",
-            },
-            {
-              title: "Book Tracker",
-              description: "A web app for tracking reading progress and sharing reviews.",
-              repoUrl: "https://github.com/yourusername/book-tracker",
-              liveUrl: "",
-            },
-            {
-              title: "Task Manager",
-              description: "A family chore/task manager with rewards system.",
-              repoUrl: "https://github.com/yourusername/task-manager",
-              liveUrl: "",
-            },
-          ].map((project, idx) => (
-            <Card
-              key={idx}
-              type="project"
-              size="md"
-              title={project.title}
-              description={project.description}
-              repoUrl={project.repoUrl}
-              liveUrl={project.liveUrl}
-            />
-          ))}
-        </div>
-      </section>
-
+      <Projects repos={repos} />
 
       {/* Game */}
-      <section className="min-h-[60vh] flex flex-col items-center pt-20 bg-gradient-to-b from-background to-surface text-highlight">
+      <section className="h-screen flex flex-col items-center pt-20 bg-gradient-to-b from-background to-surface text-highlight"
+      style={{ height: 'calc(100vh - 6rem)' }}
+      >
       <SectionHeader 
           title="Ceaser in Gaul"
           subtitle=""
           align="center"
           size="lg"
+          className="text-gold-header"
         /> 
       </section>
     </>
   );
+}
+
+export async function getStaticProps() {
+  const repos = await getGitHubRepos("mthunbo");
+
+  return {
+    props: { repos },
+    revalidate: 3600
+  };
 }

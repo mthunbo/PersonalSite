@@ -7,6 +7,7 @@ type SectionHeaderProps = {
   align?: "center" | "left";
   size?: "md" | "lg";
   color?: "default" | "highlight";
+  className?: string;
 };
 
 export const SectionHeader: React.FC<SectionHeaderProps> = ({
@@ -15,11 +16,14 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
   align,
   size,
   color,
+  className,
 }) => {
-  return (
-    <div>
-      <h2 className={sectionHeader({ align, size, color })}>{title}</h2>
-      {subtitle && <p className={sectionSubtitle()}>{subtitle}</p>}
-    </div>
-  );
+    return (
+        <div>
+            <h2 className={`${sectionHeader({ align, size, color })} ${className}`}>
+                {title}
+            </h2>
+            {subtitle && <p className={sectionSubtitle()}>{subtitle}</p>}
+        </div>
+    );
 };

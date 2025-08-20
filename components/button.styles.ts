@@ -1,7 +1,7 @@
 import { tv } from "tailwind-variants";
 
 export const button = tv({
-  base: "text-highlight text-sm py-1 px-4 rounded-full border-2 border-highlight bg-accent hover:scale-110",
+  base: "text-highlight text-sm py-1 px-4 rounded-full border-2 border-highlight bg-accent hover:text-yellow-300 hover:scale-110",
   variants: {
     variant: {
       project: "text-highlight bg-accent hover:animate-pulse",
