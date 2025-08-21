@@ -1,7 +1,7 @@
 import { tv } from "tailwind-variants";
 
 export const card = tv({
-  base: "flex flex-col rounded-xl overflow-hidden shadow-md bg-accent border border-highlight transition-transform hover:scale-105 h-full",
+  base: "flex flex-col rounded-xl overflow-hidden shadow-md bg-accent border-2 border-highlight transition-transform hover:scale-105 h-full",
   variants: {
     type: {
       project: "bg-accent text-highlight",
@@ -20,7 +20,7 @@ export const card = tv({
 });
 
 export const cardHeader = tv({
-  base: "bg-accent-dark text-highlight text-lg font-semibold px-4 py-2 w-full truncate",
+  base: "bg-accent-dark text-highlight border-highlight border-b-2 text-lg font-semibold px-4 py-2 w-full truncate",
 });
 
 export const cardBody = tv({
