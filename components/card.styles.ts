@@ -1,17 +1,17 @@
 import { tv } from "tailwind-variants";
 
 export const card = tv({
-  base: "flex flex-col rounded-xl overflow-hidden shadow-md bg-accent border-2 border-highlight transition-transform hover:scale-105 h-full",
+  base: "flex flex-col rounded-xl overflow-hidden shadow-md bg-accent border-2 border-highlight transition-transform hover:scale-105",
   variants: {
     type: {
       project: "bg-accent text-highlight",
       blog: "bg-white text-black",
     },
     size: {
-      sm: "w-60",
-      md: "w-80",
-      lg: "w-96",
-    },
+      sm: "max-w-xs",
+      md: "max-w-sm",
+      lg: "max-w-md",
+    },    
   },
   defaultVariants: {
     type: "project",

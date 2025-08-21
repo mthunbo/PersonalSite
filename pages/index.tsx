@@ -32,8 +32,19 @@ export default function Home({ repos }:HomeProps) {
         />      
       </section>
 
-      {/* Journey */}
+      {/* About */}
       <section className="min-h-screen flex flex-col items-center pt-20 bg-gradient-to-b from-surface to-background">
+        <SectionHeader
+          title="About"
+          subtitle=""
+          align="center"
+          size="lg"
+          className="text-gold-header"
+        />
+      </section>
+
+      {/* Journey */}
+      <section className="min-h-screen flex flex-col items-center pt-20 bg-gradient-to-b from-background to-surface">
       <SectionHeader 
           title="Journey"
           subtitle=""
@@ -44,7 +55,7 @@ export default function Home({ repos }:HomeProps) {
       </section>
 
       {/* Skills */}
-      <section className="min-h-screen flex flex-col items-center pt-20 bg-gradient-to-b from-background to-surface">
+      <section className="h-screen flex flex-col items-center pt-20 bg-gradient-to-b from-surface to-background">
         <SectionHeader 
           title="Skills"
           subtitle=""

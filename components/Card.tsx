@@ -34,13 +34,13 @@ export const Card: React.FC<CardProps> = ({
   
         {/* Image */}
         {image && (
-          <div className="w-full h-40 flex justify-center items-center overflow-hidden">
-            <img
-              src={image}
-              alt={title}
-              className="w-full h-full object-cover"
-            />
-          </div>
+            <div className="w-full aspect-video flex justify-center items-center overflow-hidden">
+                <img
+                src={image}
+                alt={title}
+                className="w-full h-full object-cover"
+                />
+            </div>
         )}
   
         {/* Description and Actions */}

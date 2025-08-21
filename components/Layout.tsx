@@ -7,17 +7,36 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <div className="relative min-h-screen">
       {/* Sticky Top-Left Home Button */}
       <button
-        className="fixed top-12 left-12 w-20 h-20 rounded-full bg-accent text-highlight flex items-center justify-center shadow-lg border-2 border-highlight hover:scale-110 transition"
-        aria-label="Home">
-        <GiLaurelCrown size={40} />
+        className="
+        fixed top-4 left-4 w-14 h-14 sm:top-12 sm:left-12 sm:w-20 sm:h-20 
+        rounded-full 
+        bg-gradient-to-br from-accent to-accent-dark 
+        text-highlight 
+        flex items-center justify-center 
+        border-2 border-highlight 
+        shadow-2xl
+        hover:scale-110 transition-transform"
+        aria-label="Home"
+      >
+        <GiLaurelCrown className="text-[28px] sm:text-[40px]" />
       </button>
 
       {/* Sticky Top-Right Socials Button */}
       <button
-        className="fixed top-12 right-12 w-20 h-20 rounded-full bg-accent text-highlight flex items-center justify-center shadow-lg border-2 border-highlight hover:scale-110 transition"
-        aria-label="Socials">
-        <FiMail size={40} />
+        className="
+        fixed top-4 right-4 w-14 h-14 sm:top-12 sm:right-12 sm:w-20 sm:h-20 
+        rounded-full 
+        bg-gradient-to-br from-accent to-accent-dark 
+        text-highlight 
+        flex items-center justify-center 
+        border-2 border-highlight 
+        shadow-2xl
+        hover:scale-110 transition-transform"
+        aria-label="Socials"
+      >
+        <FiMail className="text-[28px] sm:text-[40px]" />
       </button>
+
 
       {/* Main content */}
       <main className="min-h-screen">{children}</main>
