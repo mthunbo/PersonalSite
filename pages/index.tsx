@@ -69,7 +69,7 @@ export default function Home({ repos }:HomeProps) {
       <Projects repos={repos} />
 
       {/* Game */}
-      <section className="h-screen flex flex-col items-center pt-20 bg-gradient-to-b from-background to-surface text-highlight"
+      <section className="h-screen flex flex-col items-center pt-20 bg-gradient-to-b from-surface to-background text-highlight"
       style={{ height: 'calc(100vh - 6rem)' }}
       >
       <SectionHeader 

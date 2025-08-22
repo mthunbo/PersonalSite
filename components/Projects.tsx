@@ -13,7 +13,7 @@ export default function Projects({ repos }: ProjectProps) {
   );
 
   return (
-    <section className="min-h-screen flex flex-col items-center pt-20 pb-32 bg-gradient-to-b from-surface to-background">
+    <section className="min-h-screen flex flex-col items-center pt-20 pb-32 bg-gradient-to-b from-background to-surface">
         <SectionHeader 
         title="Projects"
         subtitle=""
