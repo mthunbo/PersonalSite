@@ -2,15 +2,25 @@ import React from "react";
 import { FiMail } from "react-icons/fi";
 import { GiTreasureMap, GiAnvilImpact, GiLaurelCrown, GiScrollQuill, GiRomanShield, GiCaesar } from "react-icons/gi";
 import { SideButton } from "./SideButton";
+import Embers from "../Animations/Embers";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className="relative min-h-screen">
       
       {/* Sticky top corner buttons*/}
-      <SideButton position="left" icon={<GiLaurelCrown className="text-[28px] sm:text-[40px]" />} label="Home" />
-      <SideButton position="right" icon={<FiMail className="text-[28px] sm:text-[40px]" />} label="Socials" />
-
+      <SideButton 
+        position="left" 
+        icon={<GiLaurelCrown className="text-[28px] sm:text-[40px]" />} 
+        label="Home"
+        animation={<Embers count={50}/>}
+      />
+      <SideButton 
+        position="right" 
+        icon={<FiMail className="text-[28px] sm:text-[40px]" />} 
+        label="Socials" 
+        animation={<Embers count={50}/>}
+      />
 
       {/* Main content */}
       <main className="min-h-screen">{children}</main>

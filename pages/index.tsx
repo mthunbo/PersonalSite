@@ -1,4 +1,3 @@
-import { Card } from "../components/Card";
 import { SectionHeader } from "../components/SectionHeader";
 import Projects from "../components/Projects";
 import { getGitHubRepos } from "../lib/github";

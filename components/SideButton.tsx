@@ -2,9 +2,10 @@ type SideButtonProps = {
     position: "left" | "right";
     icon: React.ReactNode;
     label: string;
+    animation?: React.ReactNode;
 };
 
-export function SideButton({ position, icon, label} : SideButtonProps){
+export function SideButton({ position, icon, label, animation} : SideButtonProps){
     return (
         <div
         className={`fixed top-4 sm:top-12 ${
@@ -25,7 +26,16 @@ export function SideButton({ position, icon, label} : SideButtonProps){
                 </button>
 
                 {/* Banner Animation */}
-                <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-6 h-6 bg-highlight rounded-full animate-bounce">
+                <div
+                className="
+                    pointer-events-none 
+                    absolute left-1/2 -translate-x-1/2 
+                    top-full
+                    w-20 sm:w-28 
+                    h-screen sm:h-screen
+                    -z-10 overflow-visible"
+                >
+                    {animation}
                 </div>
             </div>
         </div>
