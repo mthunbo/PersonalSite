@@ -1,16 +1,15 @@
-import { SectionHeader } from "./SectionHeader";
+import { SectionLayout } from "./SectionLayout";
 
-export default function Skills() {
-
+export default function Skills(){
     return(
-        <section className="h-screen flex flex-col items-center pt-20 bg-gradient-to-b from-surface to-background">
-            <SectionHeader 
-            title="Skills"
-            subtitle=""
-            align="center"
-            size="lg"
-            className="text-gold-header"
-            /> 
-        </section>
+        <SectionLayout 
+        title="Skills" 
+        size="lg" 
+        align="center" 
+        fromColorClass="from-surface" 
+        toColorClass="to-background"
+        >
+            
+        </SectionLayout>                
     )
 }

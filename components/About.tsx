@@ -1,16 +1,15 @@
-import { SectionHeader } from "./SectionHeader";
+import { SectionLayout } from "./SectionLayout";
 
 export default function About(){
-    
     return (
-        <section className="min-h-screen flex flex-col items-center pt-20 bg-gradient-to-b from-surface to-background">
-            <SectionHeader
-            title="About"
-            subtitle=""
-            align="center"
-            size="lg"
-            className="text-gold-header"
-            />
-        </section>
+        <SectionLayout 
+        title="About" 
+        size="lg" 
+        align="center" 
+        fromColorClass="from-surface" 
+        toColorClass="to-background"
+        >
+            
+        </SectionLayout>  
     )
 }

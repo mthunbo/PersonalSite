@@ -4,8 +4,8 @@ import { sectionHeader, sectionSubtitle } from "./sectionHeader.styles";
 type SectionHeaderProps = {
   title: string;
   subtitle?: string;
-  align?: "center" | "left";
-  size?: "md" | "lg";
+  align?: "left" | "center" | "right";
+  size?: "sm" | "md" | "lg";
   color?: "default" | "highlight";
   className?: string;
 };

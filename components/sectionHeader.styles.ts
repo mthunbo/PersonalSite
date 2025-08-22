@@ -4,10 +4,12 @@ export const sectionHeader = tv({
   base: "mb-8",
   variants: {
     align: {
+      right: "text.right",
       center: "text-center ",
       left: "text-left",
     },
     size: {
+      sm: "text 2xl md:text-3xl font-bold",
       md: "text-3xl md:text-4xl font-bold",
       lg: "text-4xl md:text-5xl font-bold",
     },
