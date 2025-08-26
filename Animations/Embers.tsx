@@ -8,7 +8,6 @@ type EmbersProps = {
   fallDistance?: number;
   minDuration?: number;
   maxDuration?: number;
-  colorClass?: string;
   minSize?: number;
   maxSize?: number;
 };
@@ -16,7 +15,7 @@ type EmbersProps = {
 export default function Embers({
   count = 12,
   spreadX = 20,
-  fallDistance = 1000,
+  fallDistance = 1500,
   minDuration = 30,
   maxDuration = 40,
   minSize = 6,
