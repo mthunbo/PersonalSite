@@ -20,7 +20,7 @@ export const card = tv({
 });
 
 export const cardHeader = tv({
-  base: "bg-accent-dark text-highlight border-highlight border-b-2 text-lg font-semibold px-4 py-2 w-full truncate",
+  base: "bg-accent-dark text-highlight border-highlight border-b-2 text-lg font-semibold px-4 py-2 w-full truncate font-heading",
 });
 
 export const cardBody = tv({
@@ -28,7 +28,7 @@ export const cardBody = tv({
 });
 
 export const cardDescription = tv({
-  base: "text-sm text-highlight mb-4 line-clamp-3", 
+  base: "text-sm text-highlight mb-4 line-clamp-3 font-body", 
 });
 
 export const cardActions = tv({

@@ -1,29 +1,54 @@
 import React from "react";
-import { sectionHeader, sectionSubtitle } from "./sectionHeader.styles";
+import clsx from "clsx";
 
 type SectionHeaderProps = {
   title: string;
   subtitle?: string;
-  align?: "left" | "center" | "right";
   size?: "sm" | "md" | "lg";
-  color?: "default" | "highlight";
+  align?: "left" | "center" | "right";
   className?: string;
 };
 
-export const SectionHeader: React.FC<SectionHeaderProps> = ({
+export function SectionHeader({
   title,
-  subtitle,
-  align,
-  size,
-  color,
-  className,
-}) => {
-    return (
-        <div>
-            <h2 className={`${sectionHeader({ align, size, color })} ${className}`}>
-                {title}
-            </h2>
-            {subtitle && <p className={sectionSubtitle()}>{subtitle}</p>}
-        </div>
-    );
-};
+  subtitle = "",
+  size = "lg",
+  align = "center",
+  className = "",
+}: SectionHeaderProps) {
+  const headerClasses = clsx(
+    "flex",
+    "flex-col",
+    "w-full",
+    "gap-2",
+    align === "center" && "items-center text-center",
+    align === "left" && "items-start text-left",
+    align === "right" && "items-end text-right"
+  );
+
+  const titleClasses = clsx(
+    "text-gold-header",
+    "font-heading",
+    "tracking-wide",
+    size === "sm" && "text-3xl sm:text-4xl",
+    size === "md" && "text-4xl sm:text-5xl",
+    size === "lg" && "text-5xl sm:text-7xl",
+  );
+
+  const subtitleClasses = clsx(
+    "text-silver-subheader",
+    "font-body",
+    "text-lg",
+    "sm:text-xl",
+    "font-light",
+    "italic",
+    "tracking-wider"
+  );
+
+  return (
+    <header className={clsx(headerClasses, className)}>
+      <h2 className={titleClasses}>{title}</h2>
+      {subtitle && <p className={subtitleClasses}>{subtitle}</p>}
+    </header>
+  );
+}

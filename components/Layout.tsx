@@ -52,7 +52,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
       {/* Footer */}
       <footer className="bg-accent text-text py-6">
-        <div className="container mx-auto text-center mt-11">
+        <div className="container mx-auto text-center mt-11 font-body">
           © {new Date().getFullYear()} Mark Thunbo - Wizard, Meme-lord, Lord Commander of Legio Squirrelio. All Rights Reserved.
         </div>
       </footer>

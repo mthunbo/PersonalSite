@@ -52,31 +52,31 @@ export default function LoadingNavbar() {
         <li className="cursor-pointer hover:text-yellow-300 hover:scale-110 transition-transform">
           <Link href="#About" scroll={false} onClick={(e) => handleScrollTo(e, 'About')} className="flex flex-col items-center">
             <GiCaesar size={20} />
-            <span className="text-xs">About</span>
+            <span className="text-xs font-body">About</span>
           </Link>
         </li>
         <li className="cursor-pointer hover:text-yellow-300 hover:scale-110 transition-transform">
           <Link href="#Journey" scroll={false} onClick={(e) => handleScrollTo(e, 'Journey')} className="flex flex-col items-center">
             <GiTreasureMap size={20} />
-            <span className="text-xs">Journey</span>
+            <span className="text-xs font-body">Journey</span>
           </Link>
         </li>
         <li className="cursor-pointer hover:text-yellow-300 hover:scale-110 transition-transform">
           <Link href="#Skills" scroll={false} onClick={(e) => handleScrollTo(e, 'Skills')} className="flex flex-col items-center">
             <GiScrollQuill size={20} />
-            <span className="text-xs">Skills</span>
+            <span className="text-xs font-body">Skills</span>
           </Link>
         </li>
         <li className="cursor-pointer hover:text-yellow-300 hover:scale-110 transition-transform">
           <Link href="#Projects" scroll={false} onClick={(e) => handleScrollTo(e, 'Projects')} className="flex flex-col items-center">
             <GiAnvilImpact size={20} />
-            <span className="text-xs">Projects</span>
+            <span className="text-xs font-body">Projects</span>
           </Link>
         </li>
         <li className="cursor-pointer hover:text-yellow-300 hover:scale-110 transition-transform">
           <Link href="#Game" scroll={false} onClick={(e) => handleScrollTo(e, 'Game')} className="flex flex-col items-center">
             <GiRomanShield size={20} />
-            <span className="text-xs">RUN!!!</span>
+            <span className="text-xs font-body">RUN!!!</span>
           </Link>
         </li>
       </ul>
