@@ -16,7 +16,7 @@
 //                 <button
 //                 className="
 //                     w-full h-full rounded-full 
-//                     bg-gradient-to-br from-accent to-accent-dark 
+//                     bg-gradient-to-br from-primary to-primary-dark 
 //                     text-highlight flex items-center justify-center 
 //                     border-2 border-highlight shadow-2xl
 //                     hover:scale-110 transition-transform"
@@ -61,7 +61,7 @@ export function SideButton({ position, icon, label, animation} : SideButtonProps
                 <button
                 className="
                     w-full h-full rounded-full 
-                    bg-gradient-to-br from-accent to-accent-dark 
+                    bg-gradient-to-br from-primary to-primary-dark 
                     text-highlight flex items-center justify-center 
                     border-2 border-highlight shadow-2xl
                     hover:scale-110 transition-transform"

@@ -1,10 +1,10 @@
 import { tv } from "tailwind-variants";
 
 export const button = tv({
-  base: "text-highlight text-sm py-1 px-4 rounded-full border-2 border-highlight bg-accent hover:text-yellow-300 hover:animate-pulse hover:scale-110 font-body",
+  base: "text-highlight text-sm py-1 px-4 rounded-full border-2 border-highlight bg-primary hover:text-yellow-300 hover:animate-pulse hover:scale-110 font-body",
   variants: {
     variant: {
-      project: "text-highlight bg-accent",
+      project: "text-highlight bg-primary",
       primary: "bg-highlight text-white",
       secondary: "bg-background text-highlight",
     },

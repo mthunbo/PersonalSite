@@ -45,7 +45,7 @@ export default function LoadingNavbar() {
   return (
     <nav className="fixed bottom-12 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-lg rounded-full shadow-lg border-highlight border-2 overflow-hidden">
       <div
-        className="absolute top-0 left-0 h-full bg-accent transition-all duration-500 ease-in-out"
+        className="absolute top-0 left-0 h-full bg-primary transition-all duration-500 ease-in-out"
         style={{ width: `${fillPercentage}%` }}
       />
       <ul className="relative z-10 flex justify-around bg-transparent text-highlight px-4 py-2">
