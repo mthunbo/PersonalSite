@@ -1,5 +1,5 @@
 "use client"
-import React from "react";
+import React, { useState, useRef, useEffect} from "react";
 import { motion } from "framer-motion";
 
 type EmbersProps = {
@@ -21,6 +21,15 @@ export default function Embers({
   minSize = 6,
   maxSize = 8,
 }: EmbersProps) {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true)
+  }, []);
+  if (!isMounted) {
+    return null;
+  }
+
   const items = Array.from({ length: count });
 
   return (

@@ -18,8 +18,6 @@ export const ScrollCard: React.FC<ScrollCardProps> = ({
   liveUrl,
 }) => {
   return (
-    // The 'group' class on the container is CRUCIAL.
-    // It enables the 'group-hover:' variants on child elements.
     <div className={scroll()}>
       {/* 1. ROLLED-UP STATE (Always Visible) */}
       <div className={scrollHeader()}>
@@ -27,12 +25,6 @@ export const ScrollCard: React.FC<ScrollCardProps> = ({
       </div>
 
       {/* 2. UNFURLED CONTENT (Hidden by default, appears on hover) */}
-      {/*
-        - `max-h-0` and `opacity-0` hide the content initially.
-        - `group-hover:max-h-[500px]` and `group-hover:opacity-100` expand and fade it in.
-        - The transition classes make this animation smooth.
-        - `overflow-hidden` is essential for the max-height trick to work.
-      */}
       <div className={scrollContent()}>
         <div className={scrollBody()}>
           {image && (
