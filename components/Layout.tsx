@@ -1,5 +1,5 @@
 "use client"
-import React, {useState} from "react";
+import React, {ReactEventHandler, useState} from "react";
 import { FiMail } from "react-icons/fi";
 import { GiLaurelCrown } from "react-icons/gi";
 import { SideButton } from "./SideButton";
@@ -10,6 +10,7 @@ import Modal from "./Modal";
 import { FaFacebook, FaLinkedin, FaDiscord, FaGithub } from "react-icons/fa"
 
 export default function Layout({ children }: { children: React.ReactNode }) {
+  
   const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, id: string) => {
     e.preventDefault();
     const element = document.getElementById(id);
@@ -24,6 +25,33 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     }
   };
 
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+
+    if (name === 'name') {
+      setName(value);
+    } else if (name === 'email') {
+      setEmail(value);
+    } else if (name === 'message') {
+      setMessage(value);
+    }
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = {
+      name: name,
+      email: email,
+      message: message,
+    }
+    console.log("Form submitted, data: ", formData)
+    alert("Message sent!")
+    setName('')
+    setEmail('')
+    setMessage('')
+    closeContactModal()
+  }
+
   const socialLinks = [
     { name: 'GitHub', icon: <FaGithub size={20} />, url: 'https://github.com/mthunbo' },
     { name: 'LinkedIn', icon: <FaLinkedin size={20} />, url: 'https://www.linkedin.com/in/mark-thunbo-85b91022a/' },
@@ -33,11 +61,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const [isContactModalOpen, setContactModalOpen] = useState(false);
   const openContactModal = () => setContactModalOpen(true);
   const closeContactModal = () => setContactModalOpen(false);
-
-  console.log(
-    "Layout component is rendering. Modal open state is:",
-    isContactModalOpen
-  );
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [message, setMessage] = useState('')
 
   return (
     <div className="relative min-h-screen bg-background text-text">
@@ -51,7 +77,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           animation={<Embers count={50}/>}
         />
       </Link>
-
       <SideButton 
         position="right" 
         icon={<FiMail className="text-[28px] sm:text-[40px]" />} 
@@ -73,15 +98,32 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           © {new Date().getFullYear()} Mark Thunbo - Wizard, Meme-lord, Lord Commander of Legio Squirrelio. All Rights Reserved.
         </div>
       </footer>
+
       {/* Modal */}
       <Modal isOpen={isContactModalOpen} onClose={closeContactModal}>
         <h2 className="text-2xl font-heading text-highlight">Contact Me</h2>
-        <p className="mt-4 font-body">
-          This is where our contact form will go soon!
-        </p>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="name" className="text-highlight font-body">
+            Name:
+            <input type="text" id="name" name="name" placeholder="Name..." value={name} onChange={handleInputChange}/><br/>
+          </label>
+          <label htmlFor="email" className="text-highlight font-body">
+            E-mail:
+            <input type="text" id="email" name="email" placeholder="E-mail..." value={email} onChange={handleInputChange}/><br/>
+          </label>
+          <label htmlFor="message" className="text-highlight font-body">
+            Message:
+            <textarea id="message" name="message" placeholder="Enter your message here..." value={message} onChange={handleInputChange}/><br/>
+          </label>
+
+          <button type="submit" className="mt-6 px-4 py-2 bg-primary rounded-lg text-text font-body">
+            Submit
+          </button>
+        </form>
+        
         <button 
           onClick={closeContactModal} 
-          className="mt-6 px-4 py-2 bg-primary rounded-lg text-text"
+          className="mt-6 px-4 py-2 bg-primary rounded-lg text-text font-body"
         >
           Close
         </button>
