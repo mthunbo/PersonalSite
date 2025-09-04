@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useRef, forwardRef } from "react";
-import { motion, AnimatePresence, Variants } from "framer-motion";
+import { motion, AnimatePresence, Variants, TargetAndTransition } from "framer-motion";
 
 type SocialLink = {
   name: string;
@@ -16,17 +16,19 @@ type SideButtonProps = {
   animation?: React.ReactNode;
   socials?: SocialLink[];
   onClick?: () => void;
+  whileHover?: TargetAndTransition;
+  whileTap?: TargetAndTransition;
 };
 
 const itemPositions = [
-    { x: -80, y: -25 },
-    { x: -90, y: 30 },
-    { x: -60, y: 80 },
-    { x: 0, y: 90 },
+  { x: -80, y: -25 },
+  { x: -90, y: 30 },
+  { x: -60, y: 80 },
+  { x: 0, y: 90 },
 ];
 
 export const SideButton = forwardRef<HTMLDivElement, SideButtonProps>(function SideButton(
-  { position, icon, label, animation, socials, onClick }, ref ) {
+  { position, icon, label, animation, socials, onClick, whileHover, whileTap }, ref ) {
   const [isOpen, setIsOpen] = useState(false);
   const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -53,22 +55,22 @@ export const SideButton = forwardRef<HTMLDivElement, SideButtonProps>(function S
   };
   const itemVariants: Variants = {
     open: (i: number) => ({
-        x: itemPositions[i].x,
-        y: itemPositions[i].y,
-        opacity: 1,
-        transition: {
-            type: "spring",
-            stiffness: 300,
-            damping: 24
-        }
+      x: itemPositions[i].x,
+      y: itemPositions[i].y,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 300,
+        damping: 24
+      }
     }),
     closed: {
-        x: -10,
-        y: 10,
-        opacity: 0,
-        transition: {
-            duration: 0.2
-        }
+      x: -10,
+      y: 10,
+      opacity: 0,
+      transition: {
+        duration: 0.2
+      }
     }
   };
 
@@ -99,7 +101,7 @@ export const SideButton = forwardRef<HTMLDivElement, SideButtonProps>(function S
                   custom={i}
                   variants={itemVariants}
                 >
-                  <a href={social.url} target="_blank" rel="noopener noreferrer" className="w-full h-full bg-primary-dark rounded-full flex justify-center items-center text-highlight border-2 border-highlight shadow-lg transition-transform hover:scale-110">
+                  <a href={social.url} target="_blank" rel="noopener noreferrer" className="w-full h-full bg-primary rounded-full flex justify-center items-center text-highlight border-2 border-highlight shadow-lg transition-all duration-200 hover:scale-110 hover:shadow-[0_0_20px_#A68A64] hover:shadow-highlight">
                     {social.icon}
                   </a>
                 </motion.li>
@@ -109,14 +111,11 @@ export const SideButton = forwardRef<HTMLDivElement, SideButtonProps>(function S
         </AnimatePresence>
 
         <motion.button
-          className="absolute top-0 right-0 w-full h-full rounded-full bg-gradient-to-br from-primary to-primary-dark text-highlight flex items-center justify-center border-2 border-highlight shadow-2xl z-20"
+          className="absolute top-0 right-0 w-full h-full rounded-full bg-primary text-highlight flex items-center justify-center border-2 border-highlight shadow-2xl z-20"
           aria-label={label}
-          onClick={() => {
-            console.log("SideButton's motion.button was clicked!");
-            if (onClick) onClick();
-          }}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.95 }}
+          onClick={onClick}
+          whileHover={whileHover}
+          whileTap={whileTap}
         >
           {icon}
         </motion.button>
