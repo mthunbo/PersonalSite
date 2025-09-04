@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, forwardRef } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 
 type SocialLink = {
@@ -25,7 +25,8 @@ const itemPositions = [
     { x: 0, y: 90 },
 ];
 
-export function SideButton({ position, icon, label, animation, socials, onClick }: SideButtonProps) {
+export const SideButton = forwardRef<HTMLDivElement, SideButtonProps>(function SideButton(
+  { position, icon, label, animation, socials, onClick }, ref ) {
   const [isOpen, setIsOpen] = useState(false);
   const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -73,6 +74,7 @@ export function SideButton({ position, icon, label, animation, socials, onClick 
 
   return (
     <div
+    ref={ref}
       className={`fixed top-4 sm:top-12 z-50 ${
         position === "left" ? "left-4 sm:left-12" : "right-4 sm:right-12"
       }`}
@@ -125,4 +127,4 @@ export function SideButton({ position, icon, label, animation, socials, onClick 
       </div>
     </div>
   );
-}
+})

@@ -27,7 +27,7 @@ const greatVibes = Great_Vibes({
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <>
+    <div className={`${marcellus.variable} ${orbitron.variable} ${greatVibes.variable}`}>
       <Head>
         {/* Favicon */}
         <link rel="icon" href="/favicon.ico" />
@@ -57,12 +57,9 @@ export default function App({ Component, pageProps }: AppProps) {
         />
         <meta name="twitter:image" content="/og-image.png" />
       </Head>
-      
-      <main className={`${marcellus.variable} ${orbitron.variable} ${greatVibes.variable}`}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </main>
-    </>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </div>
   );
 }

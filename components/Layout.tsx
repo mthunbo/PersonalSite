@@ -1,5 +1,5 @@
 "use client"
-import React, {ReactEventHandler, useState} from "react";
+import React, { useState, useRef} from "react";
 import { FiMail } from "react-icons/fi";
 import { GiLaurelCrown } from "react-icons/gi";
 import { SideButton } from "./SideButton";
@@ -8,37 +8,38 @@ import Link from "next/link";
 import LoadingNavbar from "./LoadingNavbar";
 import Modal from "./Modal";
 import { FaFacebook, FaLinkedin, FaDiscord, FaGithub } from "react-icons/fa"
+import Input from "./Input";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   
   const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, id: string) => {
-    e.preventDefault();
-    const element = document.getElementById(id);
+    e.preventDefault()
+    const element = document.getElementById(id)
     if (element) {
-      const offset = 80;
-      const newPosition = element.offsetTop - offset;
+      const offset = 80
+      const newPosition = element.offsetTop - offset
       
       window.scrollTo({
         top: newPosition,
         behavior: 'smooth'
       });
     }
-  };
+  }
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
+    const { name, value } = e.target
 
     if (name === 'name') {
-      setName(value);
+      setName(value)
     } else if (name === 'email') {
-      setEmail(value);
+      setEmail(value)
     } else if (name === 'message') {
-      setMessage(value);
+      setMessage(value)
     }
-  };
+  }
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+    e.preventDefault()
     const formData = {
       name: name,
       email: email,
@@ -57,10 +58,21 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     { name: 'LinkedIn', icon: <FaLinkedin size={20} />, url: 'https://www.linkedin.com/in/mark-thunbo-85b91022a/' },
     { name: 'Discord', icon: <FaDiscord size={20} />, url: 'https://discordapp.com/users/463807227745271818' },
     { name: 'Facebook', icon: <FaFacebook size={20} />, url: 'https://www.facebook.com/mark.thunbo' },
-  ];
-  const [isContactModalOpen, setContactModalOpen] = useState(false);
-  const openContactModal = () => setContactModalOpen(true);
-  const closeContactModal = () => setContactModalOpen(false);
+  ]
+  const [isContactModalOpen, setContactModalOpen] = useState(false)
+  const openContactModal = () => {
+    if (socialsButtonRef.current) {
+      const rect = socialsButtonRef.current.getBoundingClientRect();
+      setOriginPoint({
+        top: rect.top + rect.height / 2,
+        left: rect.left + rect.width / 2,
+      })
+    }
+    setContactModalOpen(true);
+  }
+  const closeContactModal = () => setContactModalOpen(false)
+  const socialsButtonRef = useRef<HTMLDivElement>(null)
+  const [originPoint, setOriginPoint] = useState({top: 0, left: 0})
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
@@ -78,6 +90,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         />
       </Link>
       <SideButton 
+        ref={socialsButtonRef}
         position="right" 
         icon={<FiMail className="text-[28px] sm:text-[40px]" />} 
         label="Socials" 
@@ -100,33 +113,59 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       </footer>
 
       {/* Modal */}
-      <Modal isOpen={isContactModalOpen} onClose={closeContactModal}>
-        <h2 className="text-2xl font-heading text-highlight">Contact Me</h2>
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="name" className="text-highlight font-body">
-            Name:
-            <input type="text" id="name" name="name" placeholder="Name..." value={name} onChange={handleInputChange}/><br/>
-          </label>
-          <label htmlFor="email" className="text-highlight font-body">
-            E-mail:
-            <input type="text" id="email" name="email" placeholder="E-mail..." value={email} onChange={handleInputChange}/><br/>
-          </label>
-          <label htmlFor="message" className="text-highlight font-body">
-            Message:
-            <textarea id="message" name="message" placeholder="Enter your message here..." value={message} onChange={handleInputChange}/><br/>
-          </label>
-
-          <button type="submit" className="mt-6 px-4 py-2 bg-primary rounded-lg text-text font-body">
-            Submit
-          </button>
-        </form>
-        
-        <button 
-          onClick={closeContactModal} 
-          className="mt-6 px-4 py-2 bg-primary rounded-lg text-text font-body"
+      <Modal 
+        isOpen={isContactModalOpen} 
+        onClose={closeContactModal}
+        originPoint={originPoint}
         >
-          Close
-        </button>
+        <h2 className="text-2xl font-heading text-highlight font-bold">
+          Contact Me
+        </h2>
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+          <Input
+            label="Name:"
+            name="name"
+            type="text"
+            placeholder="Gaius Julius Caesar..."
+            autoComplete="name"
+            value={name}
+            onChange={handleInputChange}
+          />
+          <Input
+            label="E-mail:"
+            name="email"
+            type="text"
+            placeholder="caesar@rome.gov.."
+            autoComplete="email"
+            value={email}
+            onChange={handleInputChange}
+          />
+          <Input
+            label="Message:"
+            name="message"
+            as="textarea"
+            placeholder="Enter your message here..."
+            value={message}
+            onChange={handleInputChange}
+          />
+
+          <div className="flex flex-row gap-2">
+            <button 
+              type="submit" 
+              className="mt-6 px-4 py-2 bg-black border-2 border-highlight rounded-lg text-text font-body"
+            >
+              Submit
+            </button>
+            
+            <button 
+              onClick={closeContactModal} 
+              className="mt-6 px-4 py-2 bg-black border-2 border-highlight rounded-lg text-text font-body"
+              type="button"
+            >
+              Close
+            </button>
+          </div>
+        </form>
       </Modal>
     </div>
   );
