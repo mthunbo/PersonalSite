@@ -12,7 +12,7 @@ type EmbersProps = {
   maxSize?: number;
 };
 
-export default function Embers({
+const Embers = React.memo(function Embers({
   count = 12,
   spreadX = 20,
   fallDistance = 1500,
@@ -80,4 +80,5 @@ export default function Embers({
       })}
     </div>
   );
-}
+})
+export default Embers;
