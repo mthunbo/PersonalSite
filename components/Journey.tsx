@@ -2,7 +2,8 @@ import { SectionLayout } from "./SectionLayout";
 
 export default function Journey(){
     return(
-        <SectionLayout 
+        <SectionLayout
+        id="Journey"
         title="Journey" 
         size="lg" 
         align="center" 

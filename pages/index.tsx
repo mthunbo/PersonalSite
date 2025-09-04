@@ -1,4 +1,3 @@
-import { SectionHeader } from "../components/SectionHeader";
 import Projects from "../components/Projects";
 import { getGitHubRepos } from "../lib/github";
 import About from "../components/About";

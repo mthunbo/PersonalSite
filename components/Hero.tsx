@@ -2,7 +2,8 @@ import { SectionLayout } from "./SectionLayout";
 
 export default function Hero(){
     return(
-        <SectionLayout 
+        <SectionLayout
+        id="Hero"
         title="Mark Thunbo" 
         size="lg" 
         align="center" 

@@ -30,12 +30,12 @@ module.exports = {
           DEFAULT: '#E5E5E5',
           muted: '#A0A0A0',
         },
-        primary: {
+        accent: {
           DEFAULT: '#004225',
           light: '#3F7F62',
           hover: '#4F9D7B',
         },
-        accent: {
+        primary: {
           DEFAULT: '#5b0016',
           hover: '#800020',
           dark: '#4a0012',

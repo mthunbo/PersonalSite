@@ -1,5 +1,5 @@
 "use client"
-import React from "react";
+import React, { useState, useRef, useEffect} from "react";
 import { motion } from "framer-motion";
 
 type EmbersProps = {
@@ -8,7 +8,6 @@ type EmbersProps = {
   fallDistance?: number;
   minDuration?: number;
   maxDuration?: number;
-  colorClass?: string;
   minSize?: number;
   maxSize?: number;
 };
@@ -16,12 +15,21 @@ type EmbersProps = {
 export default function Embers({
   count = 12,
   spreadX = 20,
-  fallDistance = 1000,
+  fallDistance = 1500,
   minDuration = 30,
   maxDuration = 40,
   minSize = 6,
   maxSize = 8,
 }: EmbersProps) {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true)
+  }, []);
+  if (!isMounted) {
+    return null;
+  }
+
   const items = Array.from({ length: count });
 
   return (

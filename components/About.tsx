@@ -2,7 +2,8 @@ import { SectionLayout } from "./SectionLayout";
 
 export default function About(){
     return (
-        <SectionLayout 
+        <SectionLayout
+        id="About"
         title="About" 
         size="lg" 
         align="center" 

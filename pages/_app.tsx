@@ -1,7 +1,6 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import Head from "next/head";
-
 import { Marcellus, Orbitron, Great_Vibes } from "next/font/google";
 import Layout from "../components/Layout";
 
@@ -28,11 +27,10 @@ const greatVibes = Great_Vibes({
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <>
+    <div className={`${marcellus.variable} ${orbitron.variable} ${greatVibes.variable}`}>
       <Head>
         {/* Favicon */}
         <link rel="icon" href="/favicon.ico" />
-
         {/* Basic Metadata */}
         <title>Mark Thunbo – Developer, Dreamer</title>
         <meta
@@ -41,7 +39,6 @@ export default function App({ Component, pageProps }: AppProps) {
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#004225" />
-
         {/* Open Graph */}
         <meta property="og:title" content="Mark Thunbo – Developer Portfolio" />
         <meta
@@ -51,7 +48,6 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta property="og:image" content="/og-image.png" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://yourdomain.com" />
-
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Mark Thunbo – Developer Portfolio" />
@@ -61,14 +57,9 @@ export default function App({ Component, pageProps }: AppProps) {
         />
         <meta name="twitter:image" content="/og-image.png" />
       </Head>
-
-      <main
-        className={`${marcellus.variable} ${orbitron.variable} ${greatVibes.variable}`}
-      >
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </main>
-    </>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </div>
   );
 }
