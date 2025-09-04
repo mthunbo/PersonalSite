@@ -87,6 +87,15 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           icon={<GiLaurelCrown className="text-[28px] sm:text-[40px]" />} 
           label="Home"
           animation={<Embers count={50}/>}
+          whileHover={{
+            scale: 1.1,
+            boxShadow: "0 0 25px #A68A64"
+          }}
+          whileTap={{
+            scale: 0.95,
+            rotate: 360,
+            transition: { duration: 0.5 }
+          }}
         />
       </Link>
       <SideButton 
@@ -97,6 +106,15 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         animation={<Embers count={50}/>}
         socials={socialLinks}
         onClick={openContactModal}
+        whileHover={{
+          scale: 1.1,
+          boxShadow: "0 0 25px #A68A64"
+        }}
+        whileTap={{
+          scale: 0.95,
+          rotate: 360,
+          transition: { duration: 0.5 }
+        }}
       />
 
       {/* Main content */}
