@@ -19,3 +19,18 @@
 html {
     scroll-behavior: smooth;
 }
+@layer utilities {
+  .blinking-cursor {
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes blink {
+    from,
+    to {
+      color: transparent;
+    }
+    50% {
+      color: inherit;
+    }
+  }
+}
