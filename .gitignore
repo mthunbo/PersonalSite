@@ -22,3 +22,6 @@ npm-debug.log*
 
 # typescript cache
 *.tsbuildinfo
+
+# Ignore Obsidian vault settings
+docs/.obsidian

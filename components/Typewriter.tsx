@@ -4,34 +4,50 @@ import React, { useEffect, useState } from "react"
 
 
 type TypewriterProps = {
-    text: string
+    text: string[]
     speed: number
     className?: string
+    hideCursorWhenDone?: boolean
 }
 
 export default function Typewriter({ 
     text,
     speed = 150,
-    className = ""
+    className = "",
+    hideCursorWhenDone = false
 }: TypewriterProps) {
     const [displayedText, setDisplayedText] = useState("");
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [lineIndex, setLineIndex] = useState(0)
+    const [isTyping, setIsTyping] = useState(true)
 
     useEffect(() => {
-        if (currentIndex < text.length) {
-            const timeoutId = setTimeout(() => {
-                setDisplayedText((prev) => prev + text[currentIndex])
-                setCurrentIndex((prev) => prev + 1)
-            }, speed);
+        if (lineIndex < text.length) {
+            const currentLine = text[lineIndex]
 
-            return () => clearTimeout(timeoutId)
+            if (currentIndex < currentLine.length) {
+                const timeoutId = setTimeout(() => {
+                    setDisplayedText((prev) => prev + currentLine[currentIndex])
+                    setCurrentIndex((prev) => prev + 1)
+                }, speed);
+                return () => clearTimeout(timeoutId)
+            }
+            else {
+                const timeoutId = setTimeout(() => {
+                    setLineIndex((prev) => prev + 1)
+                    setCurrentIndex(0)
+                    setDisplayedText((prev) => prev + "\n")
+                }, 1000)
+                setIsTyping(false)
+                return () => clearTimeout(timeoutId);
+            }
         }
-    }, [currentIndex, text, speed])
+    }, [currentIndex, lineIndex, text, speed])
 
     return (
         <span className={className}>
             {displayedText}
-            <span className="blinking-cursor">|</span>
+            {(isTyping || !hideCursorWhenDone) && <span className="blinking-cursor">|</span>}
         </span>
     )
 }

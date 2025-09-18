@@ -5,17 +5,8 @@ kanban-plugin: board
 ---
 
 ## In Progress
-
-- [ ] **Global Elements**
-	- [x] Implement fan-out animation for social links.
-	- [x] Create and integrate the Contact Form Modal.
-	- [ ] Make a final decision on the side banner animation and implement it.
-	- [x] Add motto and social media links to the footer component.
-	- [ ] Perform a final review of the sticky home button and navbar for responsiveness.
-
-
-## To Do (Sprint 1: Aug 27 - Sep 3)
-
+- [ ] **Hero Section**
+    - [ ] Create Typewriter.tsx component
 
 
 ## Backlog
@@ -26,9 +17,8 @@ kanban-plugin: board
 - [ ] Build browser mini-game (like Chrome Dino)
 - [ ] Create reusable theme for future apps
 - [ ] Enhance Header Typography ("Forged Gold" Lettering)
-- [ ] **Create `Modal` component for project details & contact form**
+- [ ] **Create `Modal` component for project details**
 - [ ] **Create custom 404 page**
-- [ ] Hero Section
 - [ ] About Section
 - [ ] Journey Section
 - [ ] Skills Section
@@ -38,7 +28,7 @@ kanban-plugin: board
 
 - [x] **Refactor Color System**
 - [x] **Setup & Configuration**
-- [ ] [x-done] **Layout & Design System**
+- [x] **Layout & Design System**
 - [x] **Portfolio Page (Initial Pass)**
 	- [x] Showcase GitHub repos
 	- [x] Design project card layout (`ScrollCard`)
@@ -46,7 +36,12 @@ kanban-plugin: board
 	- [x] Create `Button` component
 	- [x] Create `ScrollCard` component
 	- [x] Create `SectionHeader` component
-
+- [x] **Global Elements**
+	- [x] Implement fan-out animation for social links.
+	- [x] Create and integrate the Contact Form Modal.
+	- [x] Make a final decision on the side banner animation and implement it.
+	- [x] Add motto and social media links to the footer component.
+	- [x] Perform a final review of the sticky home button and navbar for responsiveness.
 
 
 
