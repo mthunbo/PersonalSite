@@ -86,7 +86,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           position="left" 
           icon={<GiLaurelCrown className="text-[28px] sm:text-[40px]" />} 
           label="Home"
-          animation={<Embers count={1}/>}
+          animation={<Embers count={40}/>}
           whileHover={{
             scale: 1.1,
             boxShadow: "0 0 25px #A68A64"
@@ -103,7 +103,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         position="right" 
         icon={<FiMail className="text-[28px] sm:text-[40px]" />} 
         label="Socials" 
-        animation={<Embers count={1}/>}
+        animation={<Embers count={40}/>}
         socials={socialLinks}
         onClick={openContactModal}
         whileHover={{

@@ -120,7 +120,7 @@ export const SideButton = forwardRef<HTMLDivElement, SideButtonProps>(function S
           {icon}
         </motion.button>
 
-        <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 top-full w-20 sm:w-28 h-screen -z-10 overflow-visible">
+        <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 top-full w-12 sm:w-16 h-screen -z-10 overflow-visible">
           {animation}
         </div>
       </div>

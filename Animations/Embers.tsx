@@ -1,84 +1,40 @@
-"use client"
-import React, { useState, useRef, useEffect} from "react";
-import { motion } from "framer-motion";
+"use client";
+
+import React from "react";
 
 type EmbersProps = {
   count?: number;
-  spreadX?: number;
-  fallDistance?: number;
-  minDuration?: number;
-  maxDuration?: number;
-  minSize?: number;
-  maxSize?: number;
 };
 
-const Embers = React.memo(function Embers({
-  count = 12,
-  spreadX = 20,
-  fallDistance = 1500,
-  minDuration = 30,
-  maxDuration = 40,
-  minSize = 6,
-  maxSize = 8,
-}: EmbersProps) {
-  const [isMounted, setIsMounted] = useState(false);
+const random = (min: number, max: number) => Math.random() * (max - min) + min;
 
-  useEffect(() => {
-    setIsMounted(true)
-  }, []);
-  if (!isMounted) {
-    return null;
-  }
+const Embers = React.memo(function Embers({ count = 20 }: EmbersProps) {
+  const emberStyles = Array.from({ length: count }).map(() => {
+    const size = random(3, 6);
+    const fallDistance = random(800, 1200);
+    const drift = random(-20, 20);
 
-  const items = Array.from({ length: count });
+    return {
+      width: `${size}px`,
+      height: `${size}px`,
+      left: `${random(0, 100)}%`,
+      background: `radial-gradient(circle, #ffbb33 0%, #ff4400 100%)`,
+      //boxShadow: `0 0 ${size * 1.5}px #ffbb33`,
+      filter: "blur(0.5px)",
+      animationDuration: `${random(15, 30)}s`,
+      animationDelay: `${random(0, 15)}s`,
+      '--fall-distance': `${fallDistance}px`,
+      '--drift-x': `${drift}px`,
+    } as React.CSSProperties;
+  });
 
   return (
-    <div className="relative w-full h-full pointer-events-none">
-      {items.map((_, i) => {
-        const startX = (Math.random() * 2 - 1) * spreadX;
-        const size = minSize + Math.random() * (maxSize - minSize);
-        const duration = minDuration + Math.random() * (maxDuration - minDuration);
-        const delay = Math.random() * duration;
-        const drift = (Math.random() * 2 - 1) * 8;
-        const colors = ["#ff4400", "#ffbb33", "#ff3300"];
-        const color = colors[Math.floor(Math.random() * colors.length)];
-        const background = `radial-gradient(circle, ${color} 0%, ${color}80 50%, ${color}33 100%)`;
-        const boxShadow = `
-          0 0 ${size * 1.5}px ${color},
-          0 0 ${size * 3}px ${color}33,
-          0 0 ${size * 5}px ${color}22
-        `;
-        
-        return (
-          <motion.span
-            key={i}
-            className={`absolute rounded-full`}
-            style={{
-              width: size,
-              height: size,
-              left: `calc(50% + ${startX}px)`,
-              top: 0,
-              background,
-              boxShadow,
-              filter: "blur(0.2px)",
-              opacity: 0,
-            }}
-            initial={{ y: -30, opacity: 0 }}
-            animate={{
-              y: fallDistance,
-              x: drift,
-              opacity: [0.3, 1, 0.6, 0.2, 0.3],
-            }}
-            transition={{
-              duration,
-              ease: "easeOut",
-              repeat: Infinity,
-              delay,
-            }}
-          />
-        );
-      })}
+    <div className="relative w-full h-full pointer-events-none -z-10">
+      {emberStyles.map((style, i) => (
+        <div key={i} className="ember absolute" style={style} />
+      ))}
     </div>
   );
-})
+});
+
 export default Embers;
