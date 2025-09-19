@@ -1,33 +1,40 @@
-import "../styles/globals.css";
-import type { AppProps } from "next/app";
-import Head from "next/head";
-import { Marcellus, Orbitron, Great_Vibes } from "next/font/google";
-import Layout from "../components/Layout";
+import "../styles/globals.css"
+import type { AppProps } from "next/app"
+import Head from "next/head"
+import { Marcellus, Orbitron, Dancing_Script, Marck_Script } from "next/font/google"
+import Layout from "../components/Layout"
 
 const marcellus = Marcellus({
   subsets: ["latin"],
   weight: "400",
   variable: "--font-marcellus",
   display: "swap",
-});
+})
 
 const orbitron = Orbitron({
   subsets: ["latin"],
   weight: ["400", "700"],
   variable: "--font-orbitron",
   display: "swap",
-});
+})
 
-const greatVibes = Great_Vibes({
+// const dancingScript = Dancing_Script({ 
+//   subsets: ["latin"],
+//   weight: ["400", "700"],
+//   variable: "--font-dancingscript",
+//   display: "swap",
+// })
+
+const marckScript = Marck_Script({
   subsets: ["latin"],
   weight: "400",
-  variable: "--font-greatvibes",
+  variable: "--font-marckscript",
   display: "swap",
-});
+})
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <div className={`${marcellus.variable} ${orbitron.variable} ${greatVibes.variable}`}>
+    <div className={`${marcellus.variable} ${orbitron.variable} ${marckScript.variable}`}>
       <Head>
         {/* Favicon */}
         <link rel="icon" href="/favicon.ico" />
