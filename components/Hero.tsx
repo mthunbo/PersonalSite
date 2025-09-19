@@ -27,12 +27,12 @@ export default function Hero(){
         <SectionLayout
             id="Hero"
             title="Mark Thunbo" 
-            size="lg" 
+            size="xl" 
             align="center" 
             fromColorClass="from-background" 
             toColorClass="to-surface"
         >
-            <p className="font-body text-lg sm:text-xl text-text-muted mt-4 text-center">
+            <p className="font-body text-lg sm:text-2xl text-text-muted mt-4 text-center">
                 <Typewriter 
                     text={taglineText} 
                     speed={75}
@@ -40,7 +40,7 @@ export default function Hero(){
                 />
             </p>
             {showBootSequence && (
-                <pre className="font-body text-lg sm:text-xl text-highlight mt-8 whitespace-pre-wrap text-left">
+                <pre className="font-body text-lg sm:text-3xl text-highlight mt-8 whitespace-pre-wrap text-left">
                     <Typewriter 
                         text={bootSequenceText} 
                         speed={50} 

@@ -4,7 +4,7 @@ import clsx from "clsx";
 type SectionHeaderProps = {
   title: string;
   subtitle?: string;
-  size?: "sm" | "md" | "lg";
+  size?: "sm" | "md" | "lg" | "xl";
   align?: "left" | "center" | "right";
   className?: string;
 };
@@ -33,6 +33,7 @@ export function SectionHeader({
     size === "sm" && "text-3xl sm:text-4xl",
     size === "md" && "text-4xl sm:text-5xl",
     size === "lg" && "text-5xl sm:text-7xl",
+    size === "xl" && "text-6xl sm:text-8xl"
   );
 
   const subtitleClasses = clsx(

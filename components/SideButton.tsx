@@ -21,10 +21,10 @@ type SideButtonProps = {
 };
 
 const itemPositions = [
-  { x: -80, y: -25 },
-  { x: -90, y: 30 },
-  { x: -60, y: 80 },
-  { x: 0, y: 90 },
+  { x: -90, y: -25 },
+  { x: -105, y: 30 },
+  { x: -80, y: 85 },
+  { x: -25, y: 105 },
 ];
 
 export const SideButton = forwardRef<HTMLDivElement, SideButtonProps>(function SideButton(
@@ -83,7 +83,7 @@ export const SideButton = forwardRef<HTMLDivElement, SideButtonProps>(function S
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div className="relative w-14 h-14 sm:w-20 sm:h-20">
+      <div className="relative w-14 h-14 sm:w-24 sm:h-24">
         
         <AnimatePresence>
           {isOpen && socials && (

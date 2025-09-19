@@ -84,9 +84,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <Link href="#Hero" scroll={false} onClick={(e) => handleScrollTo(e, 'Hero')}>
         <SideButton 
           position="left" 
-          icon={<GiLaurelCrown className="text-[28px] sm:text-[40px]" />} 
+          icon={<GiLaurelCrown className="text-[28px] sm:text-[50px]" />} 
           label="Home"
-          animation={<Embers count={40}/>}
+          animation={<Embers count={10}/>}
           whileHover={{
             scale: 1.1,
             boxShadow: "0 0 25px #A68A64"
@@ -101,9 +101,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <SideButton 
         ref={socialsButtonRef}
         position="right" 
-        icon={<FiMail className="text-[28px] sm:text-[40px]" />} 
+        icon={<FiMail className="text-[28px] sm:text-[50px]" />} 
         label="Socials" 
-        animation={<Embers count={40}/>}
+        animation={<Embers count={10}/>}
         socials={socialLinks}
         onClick={openContactModal}
         whileHover={{

@@ -4,7 +4,7 @@ type SectionLayoutProps = {
     id?: string
     title: string
     subtitle?: string
-    size?: "sm" | "md" | "lg"
+    size?: "sm" | "md" | "lg" | "xl"
     align?: "left" | "center" | "right"
     className?: string
     fromColorClass?: string
