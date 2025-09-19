@@ -50,7 +50,7 @@ module.exports = {
       fontFamily: {
         body: ['var(--font-marcellus)', 'serif'],
         heading: ['var(--font-orbitron)', 'sans-serif'],
-        signature: ['var(--font-greatvibes)', 'cursive'],
+        signature: ['var(--font-marckscript)', 'cursive'],
       },
     },
   },
