@@ -1,4 +1,5 @@
 import { SectionLayout } from "./SectionLayout";
+import Image from "next/image";
 
 export default function About(){
     return (
@@ -13,8 +14,8 @@ export default function About(){
         >
             <div className="container mx-auto px-4 py-16">
                 <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-16 items-center">
-                    <div className="bg-border rounded-full aspect-square w-96 flex items-center justify-center text-text-muted italic border-highlight border-4">
-                        [ Portrait Placeholder ]
+                    <div className="relative bg-border rounded-full aspect-square w-96 flex items-center justify-center overflow-hidden text-text-muted italic border-highlight border-4">
+                        <Image src="/ME.jpg" alt="Portrait" className="object-cover" fill/>
                     </div>
                     <div className="flex flex-col gap-6 text-lg text-text leading-relaxed font-body">
                         <p>
