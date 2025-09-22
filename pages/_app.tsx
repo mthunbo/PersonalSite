@@ -1,7 +1,7 @@
 import "../styles/globals.css"
 import type { AppProps } from "next/app"
 import Head from "next/head"
-import { Marcellus, Orbitron, Dancing_Script, Marck_Script } from "next/font/google"
+import { Marcellus, Orbitron, Marck_Script } from "next/font/google"
 import Layout from "../components/Layout"
 
 const marcellus = Marcellus({
@@ -17,13 +17,6 @@ const orbitron = Orbitron({
   variable: "--font-orbitron",
   display: "swap",
 })
-
-// const dancingScript = Dancing_Script({ 
-//   subsets: ["latin"],
-//   weight: ["400", "700"],
-//   variable: "--font-dancingscript",
-//   display: "swap",
-// })
 
 const marckScript = Marck_Script({
   subsets: ["latin"],
