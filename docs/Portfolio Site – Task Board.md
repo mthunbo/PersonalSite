@@ -5,8 +5,8 @@ kanban-plugin: board
 ---
 
 ## In Progress
-- [ ] **Hero Section**
-    - [ ] Create Typewriter.tsx component
+
+- [ ] Journey Section
 
 
 ## Backlog
@@ -19,8 +19,6 @@ kanban-plugin: board
 - [ ] Enhance Header Typography ("Forged Gold" Lettering)
 - [ ] **Create `Modal` component for project details**
 - [ ] **Create custom 404 page**
-- [ ] About Section
-- [ ] Journey Section
 - [ ] Skills Section
 
 
@@ -32,6 +30,9 @@ kanban-plugin: board
 - [x] **Portfolio Page (Initial Pass)**
 	- [x] Showcase GitHub repos
 	- [x] Design project card layout (`ScrollCard`)
+- [ ] **Hero Section**
+	- [x] Create Typewriter.tsx component
+- [ ] About Section
 - [x] **Reusable Components (Initial Pass)**
 	- [x] Create `Button` component
 	- [x] Create `ScrollCard` component
@@ -42,6 +43,7 @@ kanban-plugin: board
 	- [x] Make a final decision on the side banner animation and implement it.
 	- [x] Add motto and social media links to the footer component.
 	- [x] Perform a final review of the sticky home button and navbar for responsiveness.
+
 
 
 

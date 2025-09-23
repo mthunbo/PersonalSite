@@ -31,6 +31,7 @@ export default function Hero(){
             align="center" 
             fromColorClass="from-background" 
             toColorClass="to-surface"
+            className="min-h-screen"
         >
             <p className="font-body text-lg sm:text-2xl text-text-muted mt-4 text-center">
                 <Typewriter 
