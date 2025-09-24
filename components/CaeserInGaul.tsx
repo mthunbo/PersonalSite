@@ -7,12 +7,11 @@ export default function CaeserInGaul() {
     title="Caeser in Gaul"
     size="lg"
     align="center"
-    className="text-gold-header"
     fromColorClass="from-surface"
     toColorClass="to-background"
     minHeight="calc(100vh - 6rem)"
     >
-      <div>
+      <div className="w-full h-full bg-transparent">
 
       </div>
     </SectionLayout>

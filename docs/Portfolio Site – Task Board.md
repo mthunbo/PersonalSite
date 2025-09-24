@@ -30,6 +30,9 @@ kanban-plugin: board
 - [x] **Portfolio Page (Initial Pass)**
 	- [x] Showcase GitHub repos
 	- [x] Design project card layout (`ScrollCard`)
+- [ ] **Hero Section**
+	- [x] Create Typewriter.tsx component
+- [ ] About Section
 - [x] **Reusable Components (Initial Pass)**
 	- [x] Create `Button` component
 	- [x] Create `ScrollCard` component
@@ -40,6 +43,7 @@ kanban-plugin: board
 	- [x] Make a final decision on the side banner animation and implement it.
 	- [x] Add motto and social media links to the footer component.
 	- [x] Perform a final review of the sticky home button and navbar for responsiveness.
+
 
 
 

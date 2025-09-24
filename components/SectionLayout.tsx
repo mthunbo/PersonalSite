@@ -19,7 +19,7 @@ type SectionLayoutProps = {
     subtitle = "",
     size = "lg",
     align = "center",
-    className = "text-gold-header",
+    className = "",
     fromColorClass = "from-background",
     toColorClass = "to-surface",
     minHeight,
@@ -28,7 +28,7 @@ type SectionLayoutProps = {
     return (
       <section
       id={id} 
-      className={`min-h-screen flex flex-col items-center pt-20 bg-gradient-to-b ${fromColorClass} ${toColorClass}`}
+      className={`py-24 sm:py-32 flex flex-col items-center bg-gradient-to-b ${fromColorClass} ${toColorClass} ${className}`}
       style={minHeight ? { minHeight } : undefined}
       >
         <SectionHeader
@@ -36,9 +36,10 @@ type SectionLayoutProps = {
           subtitle={subtitle}
           align={align}
           size={size}
-          className={className}
         />
-        {children}
+        <div className="flex-grow flex flex-col items-center w-full">
+          {children}
+        </div>
       </section>
     )
   }
