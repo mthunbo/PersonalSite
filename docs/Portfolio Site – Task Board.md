@@ -5,12 +5,10 @@ kanban-plugin: board
 ---
 
 ## In Progress
-
-- [ ] Journey Section
+- [ ] Skills Section
 
 
 ## Backlog
-
 - [ ] Add dark/light mode toggle
 - [ ] Add language switcher (English/Danish)
 - [ ] Add blog section (MDX or markdown)
@@ -19,11 +17,13 @@ kanban-plugin: board
 - [ ] Enhance Header Typography ("Forged Gold" Lettering)
 - [ ] **Create `Modal` component for project details**
 - [ ] **Create custom 404 page**
-- [ ] Skills Section
 
 
 ## Done
-
+- [x] About Section
+- [x] Journey Section
+- [x] **Hero Section**
+    - [x] Create Typewriter.tsx component
 - [x] **Refactor Color System**
 - [x] **Setup & Configuration**
 - [x] **Layout & Design System**
