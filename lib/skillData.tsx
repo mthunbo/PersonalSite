@@ -7,28 +7,31 @@ import {
 type Skill = {
   name: string;
   icon: React.ReactNode;
-  level: 'Legatus' | 'Centurion' | 'Legionary';
+  level: 'Proficient' | 'Experienced' | 'Familiar';
 }
 
 export const frontendSkills: Skill[] = [
-  { name: 'TypeScript', icon: <SiTypescript size={48} />, level: 'Centurion' },
-  { name: 'React (Native)', icon: <SiReact size={48} />, level: 'Centurion' },
-  { name: 'JavaScript', icon: <SiJavascript size={48} />, level: 'Legionary' },
-  { name: 'Tailwind CSS', icon: <SiTailwindcss size={48} />, level: 'Legionary' },
-  { name: 'HTML5', icon: <SiHtml5 size={48} />, level: 'Legionary' },
-  { name: 'CSS3', icon: <SiCss3 size={48} />, level: 'Legionary' },
-  { name: 'Framer Motion', icon: <SiFramer size={48} />, level: 'Legionary' },
+  { name: 'TypeScript', icon: <SiTypescript size={48} />, level: 'Experienced' },
+  { name: 'React (Native)', icon: <SiReact size={48} />, level: 'Experienced' },
+  { name: 'JavaScript', icon: <SiJavascript size={48} />, level: 'Familiar' },
+  { name: 'Tailwind CSS', icon: <SiTailwindcss size={48} />, level: 'Familiar' },
+  { name: 'HTML5', icon: <SiHtml5 size={48} />, level: 'Familiar' },
+  { name: 'CSS3', icon: <SiCss3 size={48} />, level: 'Familiar' },
+  { name: 'Framer Motion', icon: <SiFramer size={48} />, level: 'Familiar' },
 ]
+
 export const backendSkills: Skill[] = [
-  { name: 'C#', icon: <SiSharp size={48} />, level: 'Legatus' },
-  { name: '.NET / EF', icon: <SiDotnet size={48} />, level: 'Legatus' },
-  { name: 'SQL', icon: <SiPostgresql size={48} />, level: 'Centurion' },
-  { name: 'C++', icon: <SiCplusplus size={48} />, level: 'Legionary' },
-  { name: 'Python', icon: <SiPython size={48} />, level: 'Legionary' },
-  { name: 'MongoDB', icon: <SiMongodb size={48} />, level: 'Legionary' },
+  { name: 'C#', icon: <SiSharp size={48} />, level: 'Proficient' },
+  { name: '.NET / EF', icon: <SiDotnet size={48} />, level: 'Proficient' },
+  { name: 'SQL', icon: <SiPostgresql size={48} />, level: 'Experienced' },
+  { name: 'C++', icon: <SiCplusplus size={48} />, level: 'Familiar' },
+  { name: 'Python', icon: <SiPython size={48} />, level: 'Familiar' },
+  { name: 'MongoDB', icon: <SiMongodb size={48} />, level: 'Familiar' },
 ]
+
 export const tools: Skill[] = [
-  { name: 'Git', icon: <SiGit size={48} />, level: 'Centurion' },
-  { name: 'GitHub', icon: <SiGithub size={48} />, level: 'Centurion' },
-  { name: 'Linux', icon: <SiLinux size={48} />, level: 'Legionary' },
+  { name: 'Git', icon: <SiGit size={48} />, level: 'Experienced' },
+  { name: 'GitHub', icon: <SiGithub size={48} />, level: 'Experienced' },
+  { name: 'Linux', icon: <SiLinux size={48} />, level: 'Familiar' },
+  { name: 'Vercel', icon: <SiVercel size={48} />, level: 'Familiar' },
 ]
