@@ -54,6 +54,7 @@ export default function Projects({ repos }: ProjectProps) {
                 isOpen={!!selectedProject} 
                 onClose={handleClose}
                 originPoint={originPoint}
+                variant="hologram"
             >
                 {selectedProject && (
                     <ProjectModal 
