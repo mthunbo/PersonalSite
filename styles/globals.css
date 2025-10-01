@@ -55,4 +55,20 @@ html {
       opacity: 0;
     }
   }
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 12px -2px theme('colors.highlight / 50%');
+    }
+    50% {
+      box-shadow: 0 0 18px 0px theme('colors.highlight / 70%');
+    }
+  }
+  @keyframes pan-background {
+    0% {
+      background-position: 0% 0%;
+    }
+    100% {
+      background-position: 100% 100%;
+    }
+  }
 }

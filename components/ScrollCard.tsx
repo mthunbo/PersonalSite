@@ -3,12 +3,12 @@ import { Button } from "./Button";
 import { scroll, scrollHeader, scrollContent, scrollBody, scrollImage, scrollDescription, scrollActions } from "./scrollcard.styles";
 
 type ScrollCardProps = {
-  image?: string;
-  title: string;
-  description?: string;
-  repoUrl?: string;
-  liveUrl?: string;
-};
+  image?: string
+  title: string
+  description?: string
+  repoUrl?: string
+  liveUrl?: string
+}
 
 export const ScrollCard: React.FC<ScrollCardProps> = ({
   image,
@@ -19,12 +19,10 @@ export const ScrollCard: React.FC<ScrollCardProps> = ({
 }) => {
   return (
     <div className={scroll()}>
-      {/* 1. ROLLED-UP STATE (Always Visible) */}
       <div className={scrollHeader()}>
         <h3 className="truncate font-heading text-lg font-semibold">{title}</h3>
       </div>
 
-      {/* 2. UNFURLED CONTENT (Hidden by default, appears on hover) */}
       <div className={scrollContent()}>
         <div className={scrollBody()}>
           {image && (
@@ -62,5 +60,5 @@ export const ScrollCard: React.FC<ScrollCardProps> = ({
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
