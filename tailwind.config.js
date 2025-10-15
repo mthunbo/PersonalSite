@@ -50,6 +50,11 @@ module.exports = {
           DEFAULT: '#5C3D2E',
           highlight: '#713f12',
         },
+        ember: {
+          DEFAULT: '#FF5C00',
+          light: '#FF6E00',
+          dark: '#BE5103',
+        },
       },
       fontFamily: {
         body: ['var(--font-marcellus)', 'serif'],
