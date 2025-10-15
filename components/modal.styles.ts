@@ -12,7 +12,7 @@ export const modal = tv({
                 content: "bg-primary-dark border-highlight shadow-xl",
             },
             hologram: {
-                backdrop: "backdrop-blur-sm",
+                backdrop: "bg-black/80",
                 content: "bg-primary-dark/80 border-highlight shadow-hologram",
             },
         },

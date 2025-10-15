@@ -33,7 +33,7 @@ html {
       color: inherit;
     }
   }
-    .ember {
+  .ember {
     position: absolute;
     border-radius: 50%;
     opacity: 0;
@@ -55,13 +55,17 @@ html {
       opacity: 0;
     }
   }
-  @keyframes pulse-glow {
+  @keyframes pulse-low {
     0%, 100% {
-      box-shadow: 0 0 12px -2px theme('colors.highlight / 50%');
+      opacity: 0.2;
     }
     50% {
-      box-shadow: 0 0 18px 0px theme('colors.highlight / 70%');
+      opacity: 0.7;
     }
+  }
+  @keyframes pulse-high {
+    0%, 100% { opacity: 0.7 }
+    50% { opacity: 1}
   }
   @keyframes pan-background {
     0% {

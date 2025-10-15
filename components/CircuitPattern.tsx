@@ -11,6 +11,7 @@ export default function CircuitPattern({ className }: CircuitPatternProps) {
             viewBox="0 0 1180 291"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="none"
         >
             <path
                 fillRule="evenodd"

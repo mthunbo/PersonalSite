@@ -63,7 +63,7 @@ module.exports = {
         'circuit-pattern': "url('/circuitPattern.svg')",
       },
       animation: {
-        'pulse-glow': 'pulse-glow 4s ease-in-out infinite',
+        'pulse-glow': 'pulse-opacity 4s ease-in-out infinite',
         'pan-background': 'pan-background 15s linear infinite',
       },
     },
