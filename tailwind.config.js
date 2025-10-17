@@ -62,9 +62,13 @@ module.exports = {
       maskImage: {
         'circuit-pattern': "url('/circuitPattern.svg')",
       },
+      backgroundImage: {
+        'scanline': "url('/scanline.svg')"
+      },
       animation: {
         'pulse-glow': 'pulse-opacity 4s ease-in-out infinite',
         'pan-background': 'pan-background 15s linear infinite',
+        'scanline-scroll': 'scanline-scroll 10s linear infinite'
       },
     },
   },

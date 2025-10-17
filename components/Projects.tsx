@@ -20,13 +20,17 @@ export default function Projects({ repos }: ProjectProps) {
         })
         setSelectedProject(repo);
     }
-    
+
     const handleClose = () => {
         setSelectedProject(null)
     }
-    
+
     const filteredRepos = repos.filter(
         (repo) => !repo.fork && !repo.private && !repo.archived
+    )
+
+    const ScanlineEffect = () => (
+        <div className="bg-scanline w-full h-full bg-repeat opacity-50 animate-scanline-scroll" />
     )
 
     return (
@@ -55,6 +59,7 @@ export default function Projects({ repos }: ProjectProps) {
                 onClose={handleClose}
                 originPoint={originPoint}
                 variant="hologram"
+                backgroundSlot={<ScanlineEffect/>}
             >
                 {selectedProject && (
                     <ProjectModal 
