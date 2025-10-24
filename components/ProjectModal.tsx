@@ -17,7 +17,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
     return (
         <>
-            <h2 className="text-2xl font-heading text-highlight mb-6">
+            <h2 className="text-2xl font-heading text-highlight mb-6 font-bold">
                 {project.name}
             </h2>
         
@@ -29,11 +29,11 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                 />
             </div>
         
-            <p className="mt-6 text-text-muted">
+            <p className="mt-6 text-text-muted ">
                 {project.description}
             </p>
         
-            <div className="mt-6 pt-6 border-t border-border flex justify-between items-center">
+            <div className="mt-6 pt-6 border-t-2 border-highlight flex justify-between items-center">
                 <div className="flex gap-4">
                     {repoUrl && (
                         <Button variant="project" size="md" onClick={() => window.open(repoUrl, "_blank")}>

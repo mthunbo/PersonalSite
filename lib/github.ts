@@ -14,7 +14,7 @@ export async function getGitHubRepos(username: string) {
 
     const reposWithLogo = await Promise.all(
       data.map(async (repo: any) => {
-        let logo = "/defaultLogo.png"
+        let logo = "/404NotFound.png"
         
         try {
           const logoRes = await fetch(`https://raw.githubusercontent.com/${username}/${repo.name}/main/logo.png`)

@@ -35,7 +35,6 @@ html {
       color: inherit;
     }
   }
-
   .ember {
     position: absolute;
     opacity: 0;
@@ -98,6 +97,15 @@ html {
     }
     100% {
       background-position: 100% 100%;
+    }
+  }
+
+  @keyframes scanline-scroll {
+    0% {
+      background-position: 100% 100%;
+    }
+    100% {
+      background-position: 0% 0%;
     }
   }
 }

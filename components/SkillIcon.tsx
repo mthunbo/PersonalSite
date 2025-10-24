@@ -12,7 +12,6 @@ export default function SkillIcon({ name, icon, level }: SkillIconProps) {
             <div className="
                 relative 
                 transition-all duration-300
-                group-hover:drop-shadow-[0_0_8px_theme(colors.primary)]
                 group-hover:drop-shadow-[0_0_18px_theme(colors.primary.hover)]"
             >
                 {icon}

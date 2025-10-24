@@ -12,12 +12,13 @@ type ModalProps = {
   children: React.ReactNode
   originPoint: { top: number; left: number }
   variant?: "default" | "hologram"
+  backgroundSlot?: React.ReactNode;
 }
 
 
-export default function Modal({ isOpen, onClose, children, originPoint, variant="default" }: ModalProps) {
+export default function Modal({ isOpen, onClose, children, originPoint, variant="default", backgroundSlot }: ModalProps) {
   const [isMounted, setIsMounted] = React.useState(false)
-  const { backdrop, content } = modal({ style: variant });
+  const { backdrop, content, background } = modal({ style: variant });
   React.useEffect(() => { setIsMounted(true) }, [])
 
   if (!isMounted) { return null }
@@ -51,6 +52,7 @@ export default function Modal({ isOpen, onClose, children, originPoint, variant=
             }}
             transition={{ type: "spring", stiffness: 100, damping: 20 }}
           >
+            {backgroundSlot && <div className={background()}>{backgroundSlot}</div>}
             {children}
           </motion.div>
         </motion.div>

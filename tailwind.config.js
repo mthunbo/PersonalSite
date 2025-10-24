@@ -41,6 +41,7 @@ module.exports = {
           DEFAULT: '#5b0016',
           hover: '#800020',
           dark: '#4a0012',
+          light: ''
         },
         royal: {
           DEFAULT: '#4B0082',
@@ -63,13 +64,19 @@ module.exports = {
       },
       boxShadow: {
         'hologram': '0 0 25px theme(colors.highlight)',
+        'inner-highlight': 'inset 0 2px 3px 0 theme(colors.highlight / 100%)'
       },
       maskImage: {
         'circuit-pattern': "url('/circuitPattern.svg')",
       },
+      backgroundImage: {
+        'scanline': "url('/scanline.svg')",
+        'film-grain': "url('/FilmGrain.svg')",
+      },
       animation: {
         'pulse-glow': 'pulse-opacity 4s ease-in-out infinite',
         'pan-background': 'pan-background 15s linear infinite',
+        'scanline-scroll': 'scanline-scroll 40s linear infinite'
       },
     },
   },
