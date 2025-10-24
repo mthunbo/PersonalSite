@@ -10,7 +10,7 @@ const random = (min: number, max: number) => Math.random() * (max - min) + min
 
 const Embers = React.memo(function Embers({ count = 20 }: EmbersProps) {
   const emberStyles = Array.from({ length: count }).map(() => {
-    const size = random(6, 10)
+    const size = random(6, 8)
     const fallDistance = random(800, 1200)
     const drift = random(-20, 20)
 
