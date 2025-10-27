@@ -38,7 +38,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                             size="md"
                             onClick={() => window.open(repoUrl, '_blank')}
                         >
-                            View Code
+                            <span className="inline-block px-4 py-2">View Code</span>
                         </Button>
                     )}
                     {liveUrl && (
@@ -47,12 +47,12 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                             size="md"
                             onClick={() => window.open(liveUrl, '_blank')}
                         >
-                            View Live
+                            <span className="inline-block px-4 py-2">View Live</span>
                         </Button>
                     )}
                 </div>
                 <Button onClick={onClose} variant="secondary" size="md">
-                    Close
+                    <span className="inline-block px-4 py-2">Close</span>
                 </Button>
             </div>
         </>
