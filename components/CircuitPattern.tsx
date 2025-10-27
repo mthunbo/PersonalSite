@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
 type CircuitPatternProps = {
-    className?: string
-}
+    className?: string;
+};
 
 export default function CircuitPattern({ className }: CircuitPatternProps) {
     return (
@@ -20,5 +20,5 @@ export default function CircuitPattern({ className }: CircuitPatternProps) {
                 fill="currentColor"
             />
         </svg>
-    )
+    );
 }

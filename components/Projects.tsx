@@ -1,42 +1,40 @@
-import { useState } from "react"
-import { SectionLayout } from "./SectionLayout"
-import HoloScrollButton from "./HoloScrollButton"
-import Modal from "./Modal"
-import ProjectModal from "./ProjectModal"
+import { useState } from 'react';
+import { SectionLayout } from './SectionLayout';
+import HoloScrollButton from './HoloScrollButton';
+import Modal from './Modal';
+import ProjectModal from './ProjectModal';
 
 interface ProjectProps {
     repos: any[];
 }
 
 export default function Projects({ repos }: ProjectProps) {
-    const [selectedProject, setSelectedProject] = useState<any | null>(null)
-    const [originPoint, setOriginPoint] = useState({ top: 0, left: 0 })
+    const [selectedProject, setSelectedProject] = useState<any | null>(null);
+    const [originPoint, setOriginPoint] = useState({ top: 0, left: 0 });
 
     const handleProjectSelect = (repo: any, event: React.MouseEvent<HTMLButtonElement>) => {
-        const rect = event.currentTarget.getBoundingClientRect()
+        const rect = event.currentTarget.getBoundingClientRect();
         setOriginPoint({
             top: rect.top + rect.height / 2,
             left: rect.left + rect.width / 2,
-        })
+        });
         setSelectedProject(repo);
-    }
+    };
 
     const handleClose = () => {
-        setSelectedProject(null)
-    }
+        setSelectedProject(null);
+    };
 
-    const filteredRepos = repos.filter(
-        (repo) => !repo.fork && !repo.private && !repo.archived
-    )
+    const filteredRepos = repos.filter((repo) => !repo.fork && !repo.private && !repo.archived);
 
     const ScanlineEffect = () => (
         <div className="bg-scanline w-full h-full bg-repeat opacity-50 animate-scanline-scroll" />
-    )
+    );
 
     return (
         <SectionLayout
             id="Projects"
-            title="Creations"
+            title="Projects"
             subtitle="A Library of Digital Artifacts"
             fromColorClass="from-background"
             toColorClass="to-surface"
@@ -54,20 +52,17 @@ export default function Projects({ repos }: ProjectProps) {
                 </div>
             </div>
 
-            <Modal 
-                isOpen={!!selectedProject} 
+            <Modal
+                isOpen={!!selectedProject}
                 onClose={handleClose}
                 originPoint={originPoint}
                 variant="hologram"
-                backgroundSlot={<ScanlineEffect/>}
+                backgroundSlot={<ScanlineEffect />}
             >
                 {selectedProject && (
-                    <ProjectModal 
-                        project={selectedProject} 
-                        onClose={handleClose}
-                    />
+                    <ProjectModal project={selectedProject} onClose={handleClose} />
                 )}
             </Modal>
         </SectionLayout>
-    )
+    );
 }

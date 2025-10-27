@@ -1,15 +1,16 @@
-import React from "react";
+import React from 'react';
 
 type SkillIconProps = {
-    name: string
-    icon: React.ReactNode
-    level: string
-}
+    name: string;
+    icon: React.ReactNode;
+    level: string;
+};
 
 export default function SkillIcon({ name, icon, level }: SkillIconProps) {
     return (
         <div className="group flex flex-col items-center gap-2 text-highlight transition-all duration-300 hover:text-highlight hover:scale-110">
-            <div className="
+            <div
+                className="
                 relative 
                 transition-all duration-300
                 group-hover:drop-shadow-[0_0_18px_theme(colors.primary.hover)]"
@@ -21,5 +22,5 @@ export default function SkillIcon({ name, icon, level }: SkillIconProps) {
                 {level}
             </span>
         </div>
-    )
+    );
 }

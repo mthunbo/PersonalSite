@@ -1,10 +1,10 @@
-import React from "react"
-import CircuitPattern from "./CircuitPattern"
+import React from 'react';
+import CircuitPattern from './CircuitPattern';
 
 type HoloScrollButtonProps = {
-    title: string
-    onClick: (event: React.MouseEvent<HTMLButtonElement>) => void
-}
+    title: string;
+    onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
+};
 
 export default function HoloScrollButton({ title, onClick }: HoloScrollButtonProps) {
     return (
@@ -19,7 +19,7 @@ export default function HoloScrollButton({ title, onClick }: HoloScrollButtonPro
                 transition-all duration-300 ease-in-out
                 hover:-translate-y-1 hover:shadow-hologram"
         >
-            <div 
+            <div
                 className="
                     absolute left-[-2px] top-1/2 -translate-y-1/2 w-6 h-[130%] rounded-full z-10
                     bg-[linear-gradient(to_bottom,_theme(colors.primary.hover),_theme(colors.primary.dark))]
@@ -27,7 +27,7 @@ export default function HoloScrollButton({ title, onClick }: HoloScrollButtonPro
                     transition-all duration-300
                     group-hover:bg-highlight/30"
             />
-            <div 
+            <div
                 className="
                     absolute right-[-2px] top-1/2 -translate-y-1/2 w-6 h-[130%] rounded-full z-10
                     bg-[linear-gradient(to_bottom,_theme(colors.primary.hover),_theme(colors.primary.dark))]
@@ -43,11 +43,9 @@ export default function HoloScrollButton({ title, onClick }: HoloScrollButtonPro
                         text-highlight
                         [animation:pulse-low_4s_ease-in-out_infinite]
                         group-hover:[animation:pulse-high_2s_ease-in-out_infinite]"
-                        />
-                <h3 className="relative truncate font-heading text-lg text-highlight">
-                    {title}
-                </h3>
+                />
+                <h3 className="relative truncate font-heading text-lg text-highlight">{title}</h3>
             </div>
         </button>
-    )
+    );
 }
