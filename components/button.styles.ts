@@ -1,7 +1,7 @@
 import { tv } from 'tailwind-variants';
 
 export const button = tv({
-    base: 'text-highlight text-sm py-1 px-4 rounded-full border-2 border-highlight bg-primary hover:text-yellow-300 hover:animate-pulse hover:scale-110 font-body',
+    base: 'text-highlight text-sm rounded-full border-2 border-highlight hover:text-yellow-300 hover:animate-pulse hover:scale-110 font-body',
     variants: {
         variant: {
             project: 'text-highlight bg-primary',
@@ -9,9 +9,9 @@ export const button = tv({
             secondary: 'bg-background text-highlight',
         },
         size: {
-            sm: 'text-xs px-3 py-1',
-            md: 'text-sm px-4 py-2',
-            lg: 'text-lg px-6 py-3',
+            sm: 'text-xs',
+            md: 'text-sm',
+            lg: 'text-lg',
         },
     },
     defaultVariants: {

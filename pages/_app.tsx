@@ -3,6 +3,7 @@ import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { Marcellus, Orbitron, Marck_Script } from 'next/font/google';
 import Layout from '../components/Layout';
+import Custom404 from './404';
 
 const marcellus = Marcellus({
     subsets: ['latin'],
@@ -26,6 +27,7 @@ const marckScript = Marck_Script({
 });
 
 export default function App({ Component, pageProps }: AppProps) {
+    const is404 = Component === Custom404;
     return (
         <div className={`${marcellus.variable} ${orbitron.variable} ${marckScript.variable}`}>
             <Head>
@@ -57,9 +59,14 @@ export default function App({ Component, pageProps }: AppProps) {
                 />
                 <meta name="twitter:image" content="/og-image.png" />
             </Head>
-            <Layout>
+
+            {is404 ? (
                 <Component {...pageProps} />
-            </Layout>
+            ) : (
+                <Layout>
+                    <Component {...pageProps} />
+                </Layout>
+            )}
         </div>
     );
 }
