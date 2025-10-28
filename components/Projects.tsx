@@ -31,6 +31,26 @@ export default function Projects({ repos }: ProjectProps) {
         <div className="bg-scanline w-full h-full bg-repeat opacity-50 animate-scanline-scroll" />
     );
 
+    if (!filteredRepos || filteredRepos.length === 0) {
+        return (
+            <SectionLayout
+                id="Projects"
+                title="Projects"
+                subtitle="A Library of Digital Artifacts"
+                fromColorClass="from-background"
+                toColorClass="to-surface"
+                className="min-h-screen"
+            >
+                <div className="container mx-auto px-6 py-16 text-center">
+                    <p className="text-lg text-text-muted">
+                        Could not load project information from GitHub at this time. Please try
+                        reloading the page or check back later.
+                    </p>
+                </div>
+            </SectionLayout>
+        );
+    }
+
     return (
         <SectionLayout
             id="Projects"

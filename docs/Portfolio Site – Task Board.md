@@ -5,23 +5,34 @@ kanban-plugin: board
 ---
 
 ## In Progress
-- [ ] Skills Section
-
+- [ ] Refactor Contact Form logic out of Layout.tsx into ContactFormModal.tsx
 
 ## Backlog
+- [ ] Create Attributions Modal (triggered from footer)
 - [ ] Add dark/light mode toggle
 - [ ] Add language switcher (English/Danish)
 - [ ] Add blog section (MDX or markdown)
-- [ ] Build browser mini-game (like Chrome Dino)
 - [ ] Create reusable theme for future apps
 - [ ] Enhance Header Typography ("Forged Gold" Lettering)
-- [ ] **Create `Modal` component for project details**
-- [ ] **Create custom 404 page**
+- [ ] Implement Contact Form submission logic (EmailJS/API)
+- [ ] V2: Add Project Filtering to Projects section
+- [ ] V2: Implement HoloScroll Projection animation (Button opens to project details)
+- [ ] V2: Implement animated background transition (Temple -> Library)
+- [ ] V2: Replace Embers animation with Matrix-style Roman Numeral Rain
+- [ ] V2: Implement React Error Boundaries
+- [ ] V2: Build "Caesar in Gaul" Canvas 2D game
 
 
 ## Done
-- [x] About Section
-- [x] Journey Section
+- [x] Add user feedback for failed repo fetch
+- [x] Refine HoloScrollButton appearance (3D effect, end caps, hover)
+- [x] Implement HoloScrollButton and ProjectModal system
+- [x] Refactor Embers animation (CSS-based, performant)
+- [x] Refactor Modal component (variants, backgroundSlot)
+- [x] Create custom 404 page
+- [x] Skills Section
+- [x] **About Section**
+- [x] **Journey Section**
 - [x] **Hero Section**
     - [x] Create Typewriter.tsx component
 - [x] **Refactor Color System**
