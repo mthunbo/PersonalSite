@@ -8,13 +8,13 @@ kanban-plugin: board
 - [ ] Refactor Contact Form logic out of Layout.tsx into ContactFormModal.tsx
 
 ## Backlog
-- [ ] Create Attributions Modal (triggered from footer)
-- [ ] Add dark/light mode toggle
-- [ ] Add language switcher (English/Danish)
-- [ ] Add blog section (MDX or markdown)
-- [ ] Create reusable theme for future apps
-- [ ] Enhance Header Typography ("Forged Gold" Lettering)
-- [ ] Implement Contact Form submission logic (EmailJS/API)
+- [ ] V2: Create Attributions Modal (triggered from footer)
+- [ ] V2: Add dark/light mode toggle
+- [ ] V2: Add language switcher (English/Danish)
+- [ ] V2: Add blog section (MDX or markdown)
+- [ ] V2: Create reusable theme for future apps
+- [ ] V2: Enhance Header Typography ("Forged Gold" Lettering)
+- [ ] V2: Implement Contact Form submission logic (EmailJS/API)
 - [ ] V2: Add Project Filtering to Projects section
 - [ ] V2: Implement HoloScroll Projection animation (Button opens to project details)
 - [ ] V2: Implement animated background transition (Temple -> Library)
@@ -30,7 +30,7 @@ kanban-plugin: board
 - [x] Refactor Embers animation (CSS-based, performant)
 - [x] Refactor Modal component (variants, backgroundSlot)
 - [x] Create custom 404 page
-- [x] Skills Section
+- [x] **Skills Section**
 - [x] **About Section**
 - [x] **Journey Section**
 - [x] **Hero Section**
