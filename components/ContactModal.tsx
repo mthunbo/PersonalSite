@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import Input from './Input';
 import { Button } from './Button';
 import emailjs from '@emailjs/browser';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 type ContactModalProps = {
     onClose: () => void;
@@ -13,6 +14,7 @@ export default function ContactModal({ onClose }: ContactModalProps) {
     const [message, setMessage] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+    const recaptchaRef = useRef<ReCAPTCHA>(null);
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         if (submitStatus !== 'idle') setSubmitStatus('idle');
@@ -29,6 +31,12 @@ export default function ContactModal({ onClose }: ContactModalProps) {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        const captchaToken = recaptchaRef.current?.getValue();
+        if (!captchaToken) {
+            alert('Please complete the CAPTCHA');
+            setSubmitStatus('error');
+            return;
+        }
         const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
         const templateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
         const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
@@ -43,6 +51,7 @@ export default function ContactModal({ onClose }: ContactModalProps) {
             name: name,
             email: email,
             message: message,
+            'g-recaptcha-response': captchaToken,
         };
 
         emailjs
@@ -50,6 +59,7 @@ export default function ContactModal({ onClose }: ContactModalProps) {
             .then((response) => {
                 console.log('EmailJS SUCCESS!', response.status, response.text);
                 setSubmitStatus('success');
+                recaptchaRef.current?.reset();
                 setTimeout(() => {
                     setName('');
                     setEmail('');
@@ -60,6 +70,7 @@ export default function ContactModal({ onClose }: ContactModalProps) {
             .catch((err) => {
                 console.error('EmailJS FAILED...', err);
                 setSubmitStatus('error');
+                recaptchaRef.current?.reset();
             })
             .finally(() => {
                 setIsSubmitting(false);
@@ -96,6 +107,14 @@ export default function ContactModal({ onClose }: ContactModalProps) {
                     value={message}
                     onChange={handleInputChange}
                 />
+
+                <div className="my-4 flex justify-center">
+                    <ReCAPTCHA
+                        ref={recaptchaRef}
+                        sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
+                        theme="dark"
+                    />
+                </div>
 
                 <div className="flex flex-row justify-between items-center mt-6 pt-6 border-t-2 border-highlight">
                     <Button variant="project" size="md" type="submit" disabled={isSubmitting}>
