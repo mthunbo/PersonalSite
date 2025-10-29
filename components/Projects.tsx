@@ -37,8 +37,6 @@ export default function Projects({ repos }: ProjectProps) {
                 id="Projects"
                 title="Projects"
                 subtitle="A Library of Digital Artifacts"
-                fromColorClass="from-background"
-                toColorClass="to-surface"
                 className="min-h-screen"
             >
                 <div className="container mx-auto px-6 py-16 text-center">
@@ -56,8 +54,6 @@ export default function Projects({ repos }: ProjectProps) {
             id="Projects"
             title="Projects"
             subtitle="A Library of Digital Artifacts"
-            fromColorClass="from-background"
-            toColorClass="to-surface"
             className="min-h-screen"
         >
             <div className="w-full max-w-7xl px-6 mx-auto pb-32">

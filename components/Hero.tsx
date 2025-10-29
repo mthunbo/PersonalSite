@@ -27,8 +27,6 @@ export default function Hero() {
             subtitle="Developer, Dreamer, and Professional Overthinker"
             size="xl"
             align="center"
-            fromColorClass="from-background"
-            toColorClass="to-surface"
             className="min-h-screen"
         >
             {showBootSequence && (

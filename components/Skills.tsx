@@ -4,13 +4,7 @@ import { frontendSkills, backendSkills, tools } from '../lib/skillData';
 
 export default function Skills() {
     return (
-        <SectionLayout
-            id="Skills"
-            title="Skills"
-            subtitle="The Tools and Technologies I Use"
-            fromColorClass="from-surface"
-            toColorClass="to-background"
-        >
+        <SectionLayout id="Skills" title="Skills" subtitle="The Tools and Technologies I Use">
             <div className="container mx-auto px-8 py-8 text-center">
                 <div className="space-y-16">
                     <div>

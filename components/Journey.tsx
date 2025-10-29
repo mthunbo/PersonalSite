@@ -46,13 +46,7 @@ export default function Journey() {
     };
 
     return (
-        <SectionLayout
-            id="Journey"
-            title="Journey"
-            subtitle="A Timeline of Growth"
-            fromColorClass="from-background"
-            toColorClass="to-surface"
-        >
+        <SectionLayout id="Journey" title="Journey" subtitle="A Timeline of Growth">
             <div className="relative container mx-auto px-16 py-16">
                 <div className="absolute left-1/2 -translate-x-1/2 h-full w-0.5 bg-primary rounded-full"></div>
                 <div className="space-y-16">
