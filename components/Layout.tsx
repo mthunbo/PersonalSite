@@ -10,6 +10,8 @@ import Modal from './Modal';
 import { FaFacebook, FaLinkedin, FaDiscord, FaGithub } from 'react-icons/fa';
 import Input from './Input';
 import ContactModal from './ContactModal';
+import { Button } from './Button';
+import AttributionsModal from './AttributionsModal';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
     const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, id: string) => {
@@ -55,7 +57,17 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         }
         setContactModalOpen(true);
     };
+    const [isAttributionsModalOpen, setAttributionsModalOpen] = useState(false);
+    const openAttributionsModal = (event: React.MouseEvent) => {
+        const centerTop = window.innerHeight / 2;
+        const centerLeft = window.innerWidth / 2;
+        setOriginPoint({ top: centerTop, left: centerLeft });
+        setAttributionsModalOpen(true);
+    };
+
+    const closeAttributionsModal = () => setAttributionsModalOpen(false);
     const closeContactModal = () => setContactModalOpen(false);
+
     const socialsButtonRef = useRef<HTMLDivElement>(null);
     const [originPoint, setOriginPoint] = useState({ top: 0, left: 0 });
 
@@ -107,8 +119,18 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             {/* Footer */}
             <footer className="bg-primary text-text py-6">
                 <div className="container mx-auto text-center mt-11 font-body">
-                    © {new Date().getFullYear()} Mark Thunbo - Wizard, Meme-lord, Lord Commander of
-                    Legio Squirrelio. All Rights Reserved.
+                    <div className="inline-block">
+                        © {new Date().getFullYear()} Mark Thunbo - Wizard, Meme-lord, Lord
+                        Commander of Legio Squirrelio. All Rights Reserved.
+                    </div>
+                    <div className="inline-block text-sm underline ml-2">
+                        <span
+                            onClick={openAttributionsModal}
+                            className="cursor-pointer hover:text-highlight"
+                        >
+                            Attributions
+                        </span>
+                    </div>
                 </div>
             </footer>
 
@@ -119,6 +141,15 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 originPoint={originPoint}
             >
                 <ContactModal onClose={closeContactModal}></ContactModal>
+            </Modal>
+            {/* Attributions Modal */}
+            <Modal
+                isOpen={isAttributionsModalOpen}
+                onClose={closeAttributionsModal}
+                originPoint={originPoint}
+            >
+                {/* Use the new content component */}
+                <AttributionsModal onClose={closeAttributionsModal} />
             </Modal>
         </div>
     );
