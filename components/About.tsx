@@ -9,8 +9,6 @@ export default function About() {
             subtitle="A citadel of Thought"
             size="lg"
             align="center"
-            fromColorClass="from-surface"
-            toColorClass="to-background"
         >
             <div className="container mx-auto px-4 py-16">
                 <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-16 items-center">
