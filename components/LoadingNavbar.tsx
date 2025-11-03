@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import {
     GiTreasureMap,
@@ -9,47 +9,111 @@ import {
     GiRomanShield,
 } from 'react-icons/gi';
 
+const SECTION_IDS = ['Hero', 'About', 'Journey', 'Skills', 'Projects', 'Game'];
+
 export default function LoadingNavbar() {
     const [fillPercentage, setFillPercentage] = useState(0);
+    const sectionOffsetsRef = useRef<number[]>([]);
 
-    // Smooth scrolls to the target section ID, applying an offset from the top.
     const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, id: string) => {
         e.preventDefault();
         const element = document.getElementById(id);
         if (element) {
-            // Calculate position slightly above the section top for better visual spacing
-            const offset = 80;
+            const offset = -20;
             const newPosition = element.offsetTop - offset;
-
-            window.scrollTo({
-                top: newPosition,
-                behavior: 'smooth',
-            });
+            window.scrollTo({ top: newPosition, behavior: 'smooth' });
         }
     };
 
-    // Effect to listen for scroll events and update the fill percentage state.
     useEffect(() => {
         const handleScroll = () => {
-            // Calculate how much of the page (excluding viewport height) has been scrolled.
-            const totalScrollableHeight = document.body.scrollHeight - window.innerHeight;
+            const offsets = sectionOffsetsRef.current;
+            if (offsets.length !== SECTION_IDS.length || offsets[1] === 0) {
+                const totalDocumentHeight = Math.max(
+                    document.body.scrollHeight,
+                    document.documentElement.scrollHeight,
+                    document.body.offsetHeight,
+                    document.documentElement.offsetHeight,
+                    document.body.clientHeight,
+                    document.documentElement.clientHeight
+                );
+                const totalScrollableHeight = totalDocumentHeight - window.innerHeight;
 
-            if (totalScrollableHeight === 0) {
-                setFillPercentage(0);
+                if (totalScrollableHeight <= 0) {
+                    setFillPercentage(0);
+                    return;
+                }
+                let scrollY_fallback = window.scrollY;
+                let finalPercentage_fallback = (scrollY_fallback / totalScrollableHeight) * 100;
+                finalPercentage_fallback = Math.max(0, Math.min(100, finalPercentage_fallback));
+                setFillPercentage(finalPercentage_fallback);
                 return;
             }
 
-            let scrollY = window.scrollY;
-            let finalPercentage = (scrollY / totalScrollableHeight) * 100;
+            const scrollY = window.scrollY;
+            const scrollOffset = -20;
+            const adjustedScrollY = scrollY - scrollOffset;
+
+            let currentSegmentIndex = 0;
+            for (let i = 0; i < offsets.length; i++) {
+                if (adjustedScrollY >= offsets[i]) {
+                    currentSegmentIndex = i;
+                } else {
+                    break;
+                }
+            }
+
+            let finalPercentage = 0;
+            const basePercentage = currentSegmentIndex * 20;
+
+            if (currentSegmentIndex < offsets.length - 1) {
+                const segmentStart = offsets[currentSegmentIndex];
+                const segmentEnd = offsets[currentSegmentIndex + 1];
+                const segmentLength = Math.max(1, segmentEnd - segmentStart);
+
+                const progressInSegment = Math.max(
+                    0,
+                    Math.min(1, (adjustedScrollY - segmentStart) / segmentLength)
+                );
+
+                finalPercentage = basePercentage + progressInSegment * 20;
+            } else {
+                const totalDocumentHeight = Math.max(
+                    document.body.scrollHeight,
+                    document.documentElement.scrollHeight
+                );
+                if (scrollY + window.innerHeight >= totalDocumentHeight - 10) {
+                    finalPercentage = 100;
+                } else {
+                    finalPercentage = basePercentage;
+                }
+            }
+
+            if (adjustedScrollY < offsets[0]) {
+                finalPercentage = 0;
+            }
 
             finalPercentage = Math.max(0, Math.min(100, finalPercentage));
             setFillPercentage(finalPercentage);
         };
 
-        window.addEventListener('scroll', handleScroll, { passive: true });
-        handleScroll();
+        const calculateOffsets = () => {
+            sectionOffsetsRef.current = SECTION_IDS.map((id) => {
+                const element = document.getElementById(id);
+                return element ? element.offsetTop : 0;
+            });
+            sectionOffsetsRef.current.sort((a, b) => a - b);
+            handleScroll();
+        };
 
-        return () => window.removeEventListener('scroll', handleScroll);
+        calculateOffsets();
+        window.addEventListener('resize', calculateOffsets);
+        window.addEventListener('scroll', handleScroll, { passive: true });
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('resize', calculateOffsets);
+        };
     }, []);
 
     return (
