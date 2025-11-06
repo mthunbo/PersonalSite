@@ -56,7 +56,7 @@ export default function Projects({ repos }: ProjectProps) {
             subtitle="A Library of Digital Artifacts"
             className="min-h-screen"
         >
-            <div className="w-full max-w-7xl px-6 mx-auto pb-32">
+            <div className="w-full max-w-7xl px-6 mx-auto pb-32 mt-12">
                 <div className="grid gap-x-6 gap-y-12 w-full justify-items-center grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
                     {filteredRepos.map((repo) => (
                         <HoloScrollButton

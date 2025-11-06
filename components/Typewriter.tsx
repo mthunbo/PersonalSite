@@ -38,7 +38,7 @@ export default function Typewriter({
                     setLineIndex((prev) => prev + 1);
                     setCurrentIndex(0);
                     setDisplayedText((prev) => prev + '\n');
-                }, 1000);
+                }, 500);
                 setIsTyping(false);
                 return () => clearTimeout(timeoutId);
             }

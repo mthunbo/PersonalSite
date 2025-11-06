@@ -74,7 +74,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     return (
         <div className="relative min-h-screen text-text">
             <div className="fixed inset-0 bg-background -z-20"></div>
-            <div className="fixed inset-0 bg-[#282B2F] -z-10 bg-[url('/bgTemple.png')] bg-center bg-no-repeat opacity-30 pointer-events-none"></div>
+            <div className="fixed inset-0 bg-[#27292E] -z-10 bg-[url('/bgTemple3.png')] bg-center bg-no-repeat opacity-30 pointer-events-none [background-size:auto_100%]"></div>
             {/* Sticky top corner buttons*/}
             <Link href="#Hero" scroll={false} onClick={(e) => handleScrollTo(e, 'Hero')}>
                 <SideButton
